@@ -86,15 +86,15 @@ Projeto licenciado sob <a href="license.md">The MIT License (MIT)</a>.
 
 ## Screenshots
 
-<img src="screenshots/screenshot01.png"><br><br>
-<img src="screenshots/screenshot02.png"><br><br>
-<img src="screenshots/screenshot03.png"><br><br>
-<img src="screenshots/screenshot04.png"><br><br>
-<img src="screenshots/screenshot05.png"><br><br>
-<img src="screenshots/screenshot06.png"><br><br>
-<img src="screenshots/screenshot07.png"><br><br>
-<img src="screenshots/screenshot08.png"><br><br>
-<img src="screenshots/screenshot09.png"><br><br>
+![alt text](screenshots/screenshot01.png)<br><br>
+![alt text](screenshots/screenshot02.png)<br><br>
+![alt text](screenshots/screenshot03.png)<br><br>
+![alt text](screenshots/screenshot04.png)<br><br>
+![alt text](screenshots/screenshot05.png)<br><br>
+![alt text](screenshots/screenshot06.png)<br><br>
+![alt text](screenshots/screenshot07.png)<br><br>
+![alt text](screenshots/screenshot08.png)<br><br>
+![alt text](screenshots/screenshot09.png)<br><br>
 
 
 Developed by<br>
