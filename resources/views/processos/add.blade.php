@@ -68,44 +68,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="cidade" class="col-sm-3 control-label">Cidade</label>
-                <div class="col-sm-6">
-                    <input type="text" name="cidade" id="cidade" class="form-control" value="{{$model['cidade'] or ''}}" required="required">
-                </div>
+              <label for="uf" class="col-sm-3 control-label">UF</label>
+              <div class="col-sm-2">
+                <select name="uf" id="uf" default="{{ $model['uf'] or 'SP' }}" class="form-control" required="required"></select>
+              </div>
             </div>
             <div class="form-group">
-                <label for="uf" class="col-sm-3 control-label">Uf</label>
-                <div class="col-sm-2">
-                    <select name="uf" id="uf" class="form-control" required="required">
-                      	<option value="">Selecione</option>
-                      	<option value="AC">AC</option>
-                      	<option value="AL">AL</option>
-                      	<option value="AM">AM</option>
-                      	<option value="AP">AP</option>
-                      	<option value="BA">BA</option>
-                      	<option value="CE">CE</option>
-                      	<option value="DF">DF</option>
-                      	<option value="ES">ES</option>
-                      	<option value="GO">GO</option>
-                      	<option value="MA">MA</option>
-                      	<option value="MG">MG</option>
-                      	<option value="MS">MS</option>
-                      	<option value="MT">MT</option>
-                      	<option value="PA">PA</option>
-                      	<option value="PB">PB</option>
-                      	<option value="PE">PE</option>
-                      	<option value="PI">PI</option>
-                      	<option value="PR">PR</option>
-                      	<option value="RJ">RJ</option>
-                      	<option value="RN">RN</option>
-                      	<option value="RS">RS</option>
-                      	<option value="RO">RO</option>
-                      	<option value="RR">RR</option>
-                      	<option value="SC">SC</option>
-                      	<option value="SE">SE</option>
-                      	<option value="SP">SP</option>
-                      	<option value="TO">TO</option>
-                     </select>
+                <label for="cidade" class="col-sm-3 control-label">Cidade</label>
+                <div class="col-sm-6">
+                    <select name="cidade" id="cidade" default="{{ $model['cidade'] or 'Selecione' }}" class="form-control" required="required"></select>
                 </div>
             </div>
 

@@ -47,6 +47,7 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'CrudGenerator\\' => array($baseDir . '/src', $vendorDir . '/kepex/laravel-crud-generator/src'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
+    'Artesaos\\' => array($vendorDir . '/artesaos/cidadesbr/src/Artesaos'),
     'App\\' => array($baseDir . '/app'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
 );

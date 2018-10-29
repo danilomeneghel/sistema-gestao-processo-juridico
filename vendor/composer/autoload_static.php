@@ -108,6 +108,7 @@ class ComposerStaticInitc4e9f446cc555078c569ed6d5473ce3c
         ),
         'A' => 
         array (
+            'Artesaos\\' => 9,
             'App\\' => 4,
         ),
     );
@@ -280,6 +281,10 @@ class ComposerStaticInitc4e9f446cc555078c569ed6d5473ce3c
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'Artesaos\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/artesaos/cidadesbr/src/Artesaos',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -353,13 +358,16 @@ class ComposerStaticInitc4e9f446cc555078c569ed6d5473ce3c
         'App\\Tipopedido' => __DIR__ . '/../..' . '/app/Tipopedido.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
+        'Artesaos\\Cidade' => __DIR__ . '/..' . '/artesaos/cidadesbr/src/Artesaos/Cidade.php',
+        'Artesaos\\Providers\\CidadesServiceProvider' => __DIR__ . '/..' . '/artesaos/cidadesbr/src/Artesaos/Providers/CidadesServiceProvider.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'CidadesSeeder' => __DIR__ . '/../..' . '/database/seeds/CidadesSeeder.php',
         'Clientes' => __DIR__ . '/../..' . '/database/seeds/Clientes.php',
-        'ClientesTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_29_002235_clientes_table.php',
+        'CreateCidadesTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_200000_create_cidades_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -2326,7 +2334,6 @@ class ComposerStaticInitc4e9f446cc555078c569ed6d5473ce3c
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
         'Parsedown' => __DIR__ . '/..' . '/erusev/parsedown/Parsedown.php',
-        'PedidosTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_29_002606_pedidos_table.php',
         'PhpParser\\Builder' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/Builder.php',
         'PhpParser\\BuilderFactory' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/BuilderFactory.php',
         'PhpParser\\BuilderHelpers' => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser/BuilderHelpers.php',

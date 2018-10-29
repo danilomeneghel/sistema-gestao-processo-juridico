@@ -1,5 +1,48 @@
 [
     {
+        "name": "artesaos/cidadesbr",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/artesaos/cidadesbr.git",
+            "reference": "003d2b0133c6357a2d7bb38af513e7a85e8eedd9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/artesaos/cidadesbr/zipball/003d2b0133c6357a2d7bb38af513e7a85e8eedd9",
+            "reference": "003d2b0133c6357a2d7bb38af513e7a85e8eedd9",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0"
+        },
+        "time": "2015-07-15T19:48:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Artesaos\\": "src/Artesaos/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jansen Felipe",
+                "email": "jansen.felipe@gmail.com"
+            }
+        ]
+    },
+    {
         "name": "dnoegel/php-xdg-base-dir",
         "version": "0.1",
         "version_normalized": "0.1.0.0",

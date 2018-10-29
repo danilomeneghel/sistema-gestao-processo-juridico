@@ -179,7 +179,9 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
-		CrudGenerator\CrudGeneratorServiceProvider::class,
+	      CrudGenerator\CrudGeneratorServiceProvider::class,
+
+        Artesaos\Providers\CidadesServiceProvider::class,
     ],
 
     /*
