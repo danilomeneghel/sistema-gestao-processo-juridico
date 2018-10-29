@@ -17,14 +17,10 @@ Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderC
 Route::middleware(['auth'])->group(function () {
 	Route::get('/clientes/grid', 'ClientesController@grid');
 	Route::resource('/clientes', 'ClientesController');
-  Route::any('/clientes', 'ClientesController@index')->name('clientes');
   Route::get('/processos/grid', 'ProcessosController@grid');
   Route::resource('/processos', 'ProcessosController');
-  Route::any('/processos', 'ProcessosController@index')->name('processos');
   Route::get('/pedidos/grid', 'PedidosController@grid');
   Route::resource('/pedidos', 'PedidosController');
-  Route::any('/pedidos', 'PedidosController@index')->name('pedidos');
   Route::get('/tipopedidos/grid', 'TipopedidosController@grid');
   Route::resource('/tipopedidos', 'TipopedidosController');
-  Route::any('/tipopedidos', 'TipopedidosController@index')->name('tipopedidos');
 });

@@ -86,6 +86,7 @@ class PedidosController extends Controller
     }	else {
 	    $pedido = new Pedido;
 		}
+    $pedido->id = $request->id?:0;
     $pedido->id_tipo_pedido = $request->id_tipo_pedido;
     $pedido->valor_risco_provavel = $request->valor_risco_provavel;
     $pedido->status = $request->status;

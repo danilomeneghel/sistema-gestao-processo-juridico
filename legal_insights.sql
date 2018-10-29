@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Out-2018 às 05:14
+-- Generation Time: 29-Out-2018 às 05:47
 -- Versão do servidor: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -108,7 +108,15 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `data_edicao` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_tipo_pedido` (`id_tipo_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `id_tipo_pedido`, `valor_risco_provavel`, `status`, `data_criacao`, `data_edicao`) VALUES
+(5, 2, 222, 'status1', '2018-10-29 08:46:27', NULL),
+(6, 1, 333, 'status2', '2018-10-29 08:46:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -152,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `tipopedidos` (
   `nome` varchar(100) COLLATE utf8_bin NOT NULL,
   `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `tipopedidos`
@@ -192,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `provider`, `provider_id`, `access_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, 'VneYmhDCCn9ruKvyYJvSye0MVx0ie21ZQbrqU1oAEcZ3RAXuK9PkDcVK1sGE', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
+(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, 'JIQdutOYZtZKL6NzgtCmwV8URH9uLy9b8NO2ISobUSYHTkJORiRc29vZ2vuZ', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
 
 --
 -- Constraints for dumped tables

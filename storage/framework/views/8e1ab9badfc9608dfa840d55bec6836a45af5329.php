@@ -1,12 +1,10 @@
-@extends('layouts.app')
+<?php $__env->startSection('content'); ?>
 
-@section('content')
-
-<h2 class="page-header">{{ ucfirst('tipopedidos') }}</h2>
+<h2 class="page-header"><?php echo e(ucfirst('tipopedidos')); ?></h2>
 
 <div class="panel panel-default">
     <div class="panel-body">
-    		<a href="{{url('tipopedidos/create')}}" class="btn btn-success" role="button"><i class="fa fa-plus"></i> {{ ucfirst('tipopedido') }}</a><br><br>
+    		<a href="<?php echo e(url('tipopedidos/create')); ?>" class="btn btn-success" role="button"><i class="fa fa-plus"></i> <?php echo e(ucfirst('tipopedido')); ?></a><br><br>
         <table class="table table-striped" id="thegrid">
           <thead>
             <tr>
@@ -23,9 +21,9 @@
     </div>
 </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
     <script type="text/javascript">
         var theGrid = null;
         $(document).ready(function(){
@@ -34,17 +32,17 @@
                 "serverSide": true,
                 "ordering": true,
                 "responsive": true,
-                "ajax": "{{url('tipopedidos/grid')}}",
+                "ajax": "<?php echo e(url('tipopedidos/grid')); ?>",
                 "columnDefs": [
                     {
                         "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/tipopedidos') }}/'+row[0]+'">'+data+'</a>';
+                            return '<a href="<?php echo e(url('/tipopedidos')); ?>/'+row[0]+'">'+data+'</a>';
                         },
                         "targets": 1
                     },
                     {
                         "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/tipopedidos') }}/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Update</a>';
+                            return '<a href="<?php echo e(url('/tipopedidos')); ?>/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Update</a>';
                         },
                         "targets": 3                    },
                     {
@@ -58,11 +56,13 @@
         });
         function doDelete(id) {
             if(confirm('You really want to delete this record?')) {
-               $.ajax({ url: '{{ url('/tipopedidos') }}/' + id, type: 'DELETE'}).success(function() {
+               $.ajax({ url: '<?php echo e(url('/tipopedidos')); ?>/' + id, type: 'DELETE'}).success(function() {
                 theGrid.ajax.reload();
                });
             }
             return false;
         }
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

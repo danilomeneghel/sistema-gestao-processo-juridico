@@ -38,7 +38,7 @@
                   </button>
 
                   <!-- Branding Image -->
-                  <a class="navbar-brand" href="<?php echo e(url('/home')); ?>">
+                  <a class="navbar-brand" href="<?php echo e(url('home')); ?>">
                       Legal Insights
                   </a>
               </div>
@@ -46,10 +46,10 @@
               <div class="collapse navbar-collapse" id="app-navbar-collapse">
                   <!-- Left Side Of Navbar -->
         				  <ul class="nav nav-navbar navbar-left">
-          					<li class="menu-item"><a href="<?php echo e(route('home')); ?>">Home</a></li>
-          					<li class="menu-item"><a href="<?php echo e(route('processos')); ?>">Processo</a></li>
-          					<li class="menu-item"><a href="<?php echo e(route('pedidos')); ?>">Pedidos</a></li>
-          					<li class="menu-item"><a href="<?php echo e(route('tipopedidos')); ?>">Tipo Pedidos</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('home')); ?>">Home</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('processos')); ?>">Processo</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('pedidos')); ?>">Pedidos</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('tipopedidos')); ?>">Tipo Pedidos</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->
