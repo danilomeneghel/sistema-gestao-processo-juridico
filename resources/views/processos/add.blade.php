@@ -32,7 +32,7 @@
                 <div class="col-sm-8">
                     <select id="pedido" name="pedido[]" multiple class="form-control">
  											 @foreach($pedidos as $pedido)
- 												 <option value="{{ $pedido->id }}">{{ "R$ ".$pedido->valor_risco_provavel." - ".$pedido->tipopedido->nome }}</option>
+ 												 <option value="{{ $pedido->id }}">{{ $pedido->tipopedido->nome.' (R$ '.number_format($pedido->valor_risco_provavel, 2, ',', ' ').')' }}</option>
  											 @endforeach
  									 </select>
                 </div>

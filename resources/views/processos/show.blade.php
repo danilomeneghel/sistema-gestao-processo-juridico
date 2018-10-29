@@ -29,7 +29,7 @@
                 <div class="col-sm-6">
 					         @foreach($model->pedido as $pedido)
                     <div style="padding-bottom:4px">
-                      <input type="text" name="pedido" class="form-control" value="{{'R$ '.$pedido['valor_risco_provavel'].' - '.$pedido->tipopedido['nome']}}" readonly="readonly">
+                      <input type="text" name="pedido" class="form-control" value="{{$pedido->tipopedido['nome'].' (R$ '.number_format($pedido['valor_risco_provavel'], 2, ',', ' ').')'}}" readonly="readonly">
                     </div>
 									 @endforeach
                 </div>

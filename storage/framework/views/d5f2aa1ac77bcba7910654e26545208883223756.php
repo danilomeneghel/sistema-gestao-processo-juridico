@@ -23,7 +23,7 @@
             <div class="form-group">
                 <label for="id_tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
                 <div class="col-sm-2">
-                    <select name="id_tipo_pedido" id="id_tipo_pedido" class="form-control">
+                    <select name="id_tipo_pedido" id="id_tipo_pedido" class="form-control" required="required">
                         <?php if($tipopedidos->count()): ?>
                             <?php $__currentLoopData = $tipopedidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tipopedido): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($tipopedido->id); ?>" <?php echo e($selecionaTipopedido == $tipopedido->id ? "selected=selected" : ""); ?>><?php echo e($tipopedido->nome); ?></option>

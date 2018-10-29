@@ -27,7 +27,7 @@
                 <div class="col-sm-6">
 					         <?php $__currentLoopData = $model->pedido; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pedido): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div style="padding-bottom:4px">
-                      <input type="text" name="pedido" class="form-control" value="<?php echo e('R$ '.$pedido['valor_risco_provavel'].' - '.$pedido->tipopedido['nome']); ?>" readonly="readonly">
+                      <input type="text" name="pedido" class="form-control" value="<?php echo e($pedido->tipopedido['nome'].' (R$ '.number_format($pedido['valor_risco_provavel'], 2, ',', ' ').')'); ?>" readonly="readonly">
                     </div>
 									 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>

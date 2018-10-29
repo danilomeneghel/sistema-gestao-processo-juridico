@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Out-2018 às 16:37
+-- Generation Time: 29-Out-2018 às 20:54
 -- Versão do servidor: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `data_edicao` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_tipo_pedido` (`id_tipo_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `pedidos`
@@ -116,7 +116,8 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
 
 INSERT INTO `pedidos` (`id`, `id_tipo_pedido`, `valor_risco_provavel`, `status`, `data_criacao`, `data_edicao`) VALUES
 (1, 2, 650.5, 'status1', '2018-10-29 08:46:27', '2018-10-29 18:21:51'),
-(2, 1, 450, 'status2', '2018-10-29 08:46:40', '2018-10-29 18:24:56');
+(2, 1, 450, 'status2', '2018-10-29 08:46:40', '2018-10-29 18:24:56'),
+(9, 4, 480, 'status3', '2018-10-29 22:06:54', '2018-10-29 22:07:09');
 
 -- --------------------------------------------------------
 
@@ -128,8 +129,8 @@ DROP TABLE IF EXISTS `pedido_processo`;
 CREATE TABLE IF NOT EXISTS `pedido_processo` (
   `pedido_id` int(11) NOT NULL,
   `processo_id` int(11) NOT NULL,
-  KEY `pedido_processo_ibfk_1` (`pedido_id`),
-  KEY `pedido_processo_ibfk_2` (`processo_id`)
+  PRIMARY KEY (`pedido_id`,`processo_id`),
+  KEY `processo_id` (`processo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -137,9 +138,12 @@ CREATE TABLE IF NOT EXISTS `pedido_processo` (
 --
 
 INSERT INTO `pedido_processo` (`pedido_id`, `processo_id`) VALUES
-(2, 4),
-(1, 5),
-(2, 6);
+(1, 1),
+(2, 1),
+(9, 2),
+(1, 3),
+(2, 3),
+(9, 3);
 
 -- --------------------------------------------------------
 
@@ -161,16 +165,16 @@ CREATE TABLE IF NOT EXISTS `processos` (
   `data_edicao` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_cliente` (`id_cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `processos`
 --
 
 INSERT INTO `processos` (`id`, `id_cliente`, `nro_processo`, `data_distribuicao`, `valor_causa`, `vara`, `cidade`, `uf`, `data_criacao`, `data_edicao`) VALUES
-(4, 3, '11111', '2018-10-10', 220, 'aaaaa', 'Porto Alegre', 'RS', '2018-10-29 18:12:33', '2018-10-29 18:18:38'),
-(5, 1, '22222', '2018-10-11', 350, 'bbbbb', 'Florianópolis', 'SC', '2018-10-29 18:13:16', NULL),
-(6, 8, '33333', '2018-10-25', 550, 'ccccc', 'Curitiba', 'PR', '2018-10-29 18:19:30', NULL);
+(1, 2, '11111', '2018-10-10', 250, 'aaaaa', 'Porto Alegre', 'RS', '2018-10-29 23:49:00', NULL),
+(2, 3, '22222', '2018-10-11', 350, 'bbbbb', 'Florianópolis', 'SC', '2018-10-29 23:51:25', NULL),
+(3, 7, '33333', '2018-10-12', 460, 'ccccc', 'Curitiba', 'PR', '2018-10-29 23:52:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -224,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `provider`, `provider_id`, `access_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, 'JIQdutOYZtZKL6NzgtCmwV8URH9uLy9b8NO2ISobUSYHTkJORiRc29vZ2vuZ', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
+(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, '3Cu0yQyx8CURuXLozMagYqVbJcsB2QbaGkNkq3D0kIrsak54bh0MC738PS4T', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
 
 --
 -- Constraints for dumped tables

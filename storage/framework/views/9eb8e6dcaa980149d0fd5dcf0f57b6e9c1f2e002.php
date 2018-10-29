@@ -37,14 +37,14 @@
             </div>
 
             <div class="form-group">
-                <label for="data_criacao" class="col-sm-3 control-label">Data Criacao</label>
+                <label for="data_criacao" class="col-sm-3 control-label">Data Criação</label>
                 <div class="col-sm-6">
                     <input type="text" name="data_criacao" id="data_criacao" class="form-control" value="<?php echo e(isset($model['data_criacao']) ? $model['data_criacao'] : ''); ?>" readonly="readonly">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="data_edicao" class="col-sm-3 control-label">Data Edicao</label>
+                <label for="data_edicao" class="col-sm-3 control-label">Data Edição</label>
                 <div class="col-sm-6">
                     <input type="text" name="data_edicao" id="data_edicao" class="form-control" value="<?php echo e(isset($model['data_edicao']) ? $model['data_edicao'] : ''); ?>" readonly="readonly">
                 </div>
@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a class="btn btn-default" href="<?php echo e(url('/pedidos')); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+                    <a class="btn btn-default" href="<?php echo e(url('/pedidos')); ?>"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
 

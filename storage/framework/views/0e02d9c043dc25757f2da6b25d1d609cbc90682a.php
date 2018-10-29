@@ -31,7 +31,7 @@
                 <div class="col-sm-8">
                     <select id="pedido" name="pedido[]" multiple class="form-control">
  											 <?php $__currentLoopData = $pedidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pedido): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
- 												 <option value="<?php echo e($pedido->id); ?>"><?php echo e("R$ ".$pedido->valor_risco_provavel." - ".$pedido->tipopedido->nome); ?></option>
+ 												 <option value="<?php echo e($pedido->id); ?>"><?php echo e($pedido->tipopedido->nome.' (R$ '.number_format($pedido->valor_risco_provavel, 2, ',', ' ').')'); ?></option>
  											 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
  									 </select>
                 </div>
