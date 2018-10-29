@@ -2,11 +2,11 @@
 
 @section('content')
 
-<h2 class="page-header">{{ ucfirst('tipopedidos') }}</h2>
+<h2 class="page-header">{{ ucfirst('Tipo Pedidos') }}</h2>
 
 <div class="panel panel-default">
     <div class="panel-body">
-    		<a href="{{url('tipopedidos/create')}}" class="btn btn-success" role="button"><i class="fa fa-plus"></i> {{ ucfirst('tipopedido') }}</a><br><br>
+    		<a href="{{url('tipopedidos/create')}}" class="btn btn-success" role="button"><i class="fa fa-plus"></i> {{ ucfirst('Tipo Pedido') }}</a><br><br>
         <table class="table table-striped" id="thegrid">
           <thead>
             <tr>

@@ -39,9 +39,8 @@ class ProcessosController extends Controller
 
 	public function show(Request $request, $id)
 	{
-		$processo = Processo::findOrFail($id);
-	    return view('processos.show', [
-	        'model' => $processo	    ]);
+		  $processo = Processo::findOrFail($id);
+	    return view('processos.show', ['model' => $processo]);
 	}
 
 	public function grid(Request $request)
@@ -49,7 +48,7 @@ class ProcessosController extends Controller
 		$len = $_GET['length'];
 		$start = $_GET['start'];
 
-		$select = "SELECT *,1,2 ";
+		$select = "SELECT a.id, a.nro_processo, a.data_distribuicao, a.valor_causa, a.vara, a.cidade, a.uf, a.data_criacao,1,2 ";
 		$presql = " FROM processos a ";
 		if($_GET['search']['value']) {
 			$presql .= " WHERE nro_processo LIKE '%".$_GET['search']['value']."%' ";

@@ -1,10 +1,10 @@
 <?php $__env->startSection('content'); ?>
 
-<h2 class="page-header"><?php echo e(ucfirst('tipopedidos')); ?></h2>
+<h2 class="page-header"><?php echo e(ucfirst('Tipo Pedidos')); ?></h2>
 
 <div class="panel panel-default">
     <div class="panel-body">
-    		<a href="<?php echo e(url('tipopedidos/create')); ?>" class="btn btn-success" role="button"><i class="fa fa-plus"></i> <?php echo e(ucfirst('tipopedido')); ?></a><br><br>
+    		<a href="<?php echo e(url('tipopedidos/create')); ?>" class="btn btn-success" role="button"><i class="fa fa-plus"></i> <?php echo e(ucfirst('Tipo Pedido')); ?></a><br><br>
         <table class="table table-striped" id="thegrid">
           <thead>
             <tr>

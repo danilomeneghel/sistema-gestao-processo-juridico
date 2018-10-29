@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="page-header">Tipopedido</h2>
+<h2 class="page-header">Tipo Pedido</h2>
 
 <div class="panel panel-default">
 

@@ -9,7 +9,6 @@
           <thead>
             <tr>
               <th>Id</th>
-              <th>Reu Principal</th>
               <th>Nro Processo</th>
               <th>Data Distribuicao</th>
               <th>Valor Causa</th>
@@ -50,12 +49,12 @@
                         "render": function ( data, type, row ) {
                             return '<a href="<?php echo e(url('/processos')); ?>/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Update</a>';
                         },
-                        "targets": 9                    },
+                        "targets": 8                    },
                     {
                         "render": function ( data, type, row ) {
                             return '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>';
                         },
-                        "targets": 9+1
+                        "targets": 8+1
                     },
                 ]
             });

@@ -1,12 +1,12 @@
 <?php $__env->startSection('content'); ?>
 
-<h2 class="page-header">Pedido</h2>
+<h2 class="page-header">Cliente</h2>
 
 <div class="panel panel-default">
 
     <div class="panel-body">
 
-        <form action="<?php echo e(url('/pedidos')); ?>" method="POST" class="form-horizontal">
+        <form action="<?php echo e(url('/clientes')); ?>" method="POST" class="form-horizontal">
 
             <div class="form-group">
                 <label for="id" class="col-sm-3 control-label">Id</label>
@@ -16,35 +16,28 @@
             </div>
 
             <div class="form-group">
-                <label for="id_tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
+                <label for="nome" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="id_tipo_pedido" id="id_tipo_pedido" class="form-control" value="<?php echo e(isset($model->tipopedido->nome) ? $model->tipopedido->nome : ''); ?>" readonly="readonly">
+                    <input type="text" name="nome" id="nome" class="form-control" value="<?php echo e(isset($model['nome']) ? $model['nome'] : ''); ?>" readonly="readonly">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="valor_risco_provavel" class="col-sm-3 control-label">Valor Risco Provavel</label>
+                <label for="email" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="text" name="valor_risco_provavel" id="valor_risco_provavel" class="form-control" value="<?php echo e(isset($model['valor_risco_provavel']) ? $model['valor_risco_provavel'] : ''); ?>" readonly="readonly">
+                    <input type="text" name="email" id="email" class="form-control" value="<?php echo e(isset($model['email']) ? $model['email'] : ''); ?>" readonly="readonly">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="status" class="col-sm-3 control-label">Status</label>
-                <div class="col-sm-6">
-                    <input type="text" name="status" id="status" class="form-control" value="<?php echo e(isset($model['status']) ? $model['status'] : ''); ?>" readonly="readonly">
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="data_criacao" class="col-sm-3 control-label">Data Criacao</label>
+                <label for="data_criacao" class="col-sm-3 control-label">Data Criação</label>
                 <div class="col-sm-6">
                     <input type="text" name="data_criacao" id="data_criacao" class="form-control" value="<?php echo e(isset($model['data_criacao']) ? $model['data_criacao'] : ''); ?>" readonly="readonly">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="data_edicao" class="col-sm-3 control-label">Data Edicao</label>
+                <label for="data_edicao" class="col-sm-3 control-label">Data Edição</label>
                 <div class="col-sm-6">
                     <input type="text" name="data_edicao" id="data_edicao" class="form-control" value="<?php echo e(isset($model['data_edicao']) ? $model['data_edicao'] : ''); ?>" readonly="readonly">
                 </div>
@@ -52,7 +45,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a class="btn btn-default" href="<?php echo e(url('/pedidos')); ?>"><i class="glyphicon glyphicon-chevron-left"></i> Back</a>
+                    <a class="btn btn-default" href="<?php echo e(url('/clientes')); ?>"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
 

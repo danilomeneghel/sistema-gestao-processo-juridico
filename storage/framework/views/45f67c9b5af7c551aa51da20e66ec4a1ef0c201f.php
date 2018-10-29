@@ -53,6 +53,7 @@
           					<li class="menu-item"><a href="<?php echo e(url('processos')); ?>">Processo</a></li>
           					<li class="menu-item"><a href="<?php echo e(url('pedidos')); ?>">Pedidos</a></li>
           					<li class="menu-item"><a href="<?php echo e(url('tipopedidos')); ?>">Tipo Pedidos</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('clientes')); ?>">Clientes</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->
@@ -104,7 +105,7 @@
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.dataTables.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/dataTables.bootstrap.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/dataTables.responsive.min.js')); ?>"></script>
-    
+
     <script>
       $.ajaxSetup({
           headers: {

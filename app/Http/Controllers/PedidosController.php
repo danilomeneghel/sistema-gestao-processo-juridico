@@ -46,7 +46,7 @@ class PedidosController extends Controller
     $len = $_GET['length'];
 		$start = $_GET['start'];
 
-		$select = "SELECT *,1,2,b.nome AS 'nome_tipo_pedido'";
+		$select = "SELECT a.*,1,2,b.nome AS 'nome_tipo_pedido'";
 		$presql = " FROM pedidos a ";
     $presql .= " LEFT JOIN tipopedidos b ON a.id_tipo_pedido = b.id";
 		if($_GET['search']['value']) {
@@ -69,7 +69,7 @@ class PedidosController extends Controller
         if($count == 2)
           $r[] = $row->nome_tipo_pedido;
         else
-        $r[] = $value;
+          $r[] = $value;
         $count++;
       }
       $ret[] = $r;
@@ -92,7 +92,6 @@ class PedidosController extends Controller
     }	else {
 	    $pedido = new Pedido;
 		}
-    $pedido->id = $request->id?:0;
     $pedido->id_tipo_pedido = $request->id_tipo_pedido;
     $pedido->valor_risco_provavel = $request->valor_risco_provavel;
     $pedido->status = $request->status;

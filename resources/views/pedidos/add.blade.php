@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="id_tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
                 <div class="col-sm-2">
-                    <select name="id_tipo_pedido" id="id_tipo_pedido" class="form-control">
+                    <select name="id_tipo_pedido" id="id_tipo_pedido" class="form-control" required="required">
                         @if ($tipopedidos->count())
                             @foreach($tipopedidos as $tipopedido)
                                 <option value="{{ $tipopedido->id }}" {{ $selecionaTipopedido == $tipopedido->id ? "selected=selected" : "" }}>{{ $tipopedido->nome }}</option>

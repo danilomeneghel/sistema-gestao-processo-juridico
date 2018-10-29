@@ -53,6 +53,7 @@
           					<li class="menu-item"><a href="{{ url('processos') }}">Processo</a></li>
           					<li class="menu-item"><a href="{{ url('pedidos') }}">Pedidos</a></li>
           					<li class="menu-item"><a href="{{ url('tipopedidos') }}">Tipo Pedidos</a></li>
+          					<li class="menu-item"><a href="{{ url('clientes') }}">Clientes</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->
@@ -103,7 +104,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
-    
+
     <script>
       $.ajaxSetup({
           headers: {

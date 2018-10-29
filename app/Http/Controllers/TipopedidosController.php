@@ -86,7 +86,6 @@ class TipopedidosController extends Controller
     }	else {
 	    $tipopedido = new Tipopedido;
 		}
-    $tipopedido->id = $request->id?:0;
     $tipopedido->nome = $request->nome;
     $tipopedido->ativo = $request->ativo;
     $tipopedido->save();
