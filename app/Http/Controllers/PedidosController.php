@@ -43,11 +43,12 @@ class PedidosController extends Controller
 
 	public function grid(Request $request)
 	{
-		$len = $_GET['length'];
+    $len = $_GET['length'];
 		$start = $_GET['start'];
 
-		$select = "SELECT *,1,2 ";
+		$select = "SELECT *,1,2,b.nome AS 'nome_tipo_pedido'";
 		$presql = " FROM pedidos a ";
+    $presql .= " LEFT JOIN tipopedidos b ON a.id_tipo_pedido = b.id";
 		if($_GET['search']['value']) {
 			$presql .= " WHERE id_tipo_pedido LIKE '%".$_GET['search']['value']."%' ";
 		}
@@ -61,13 +62,18 @@ class PedidosController extends Controller
 		$results = DB::select($sql);
 		$ret = [];
 
-		foreach ($results as $row) {
-			$r = [];
-			foreach ($row as $value) {
-				$r[] = $value;
-			}
-			$ret[] = $r;
-		}
+    foreach ($results as $row) {
+      $r = [];
+      $count = 1;
+      foreach ($row as $value) {
+        if($count == 2)
+          $r[] = $row->nome_tipo_pedido;
+        else
+        $r[] = $value;
+        $count++;
+      }
+      $ret[] = $r;
+    }
 
 		$ret['data'] = $ret;
 		$ret['recordsTotal'] = $count;

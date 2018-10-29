@@ -35,13 +35,13 @@
             <div class="form-group">
                 <label for="valor_risco_provavel" class="col-sm-3 control-label">Valor Risco Provavel</label>
                 <div class="col-sm-2">
-                    <input type="number" name="valor_risco_provavel" id="valor_risco_provavel" class="form-control" value="<?php echo e(isset($model['valor_risco_provavel']) ? $model['valor_risco_provavel'] : ''); ?>">
+                    <input type="text" name="valor_risco_provavel" id="valor_risco_provavel" class="form-control" value="<?php echo e(isset($model['valor_risco_provavel']) ? $model['valor_risco_provavel'] : ''); ?>" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label for="status" class="col-sm-3 control-label">Status</label>
                 <div class="col-sm-6">
-                    <input type="text" name="status" id="status" class="form-control" value="<?php echo e(isset($model['status']) ? $model['status'] : ''); ?>">
+                    <input type="text" name="status" id="status" class="form-control" value="<?php echo e(isset($model['status']) ? $model['status'] : ''); ?>" required="required">
                 </div>
             </div>
 

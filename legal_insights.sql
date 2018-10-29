@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Out-2018 às 05:47
+-- Generation Time: 29-Out-2018 às 16:37
 -- Versão do servidor: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -30,13 +30,13 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `clientes`;
 CREATE TABLE IF NOT EXISTS `clientes` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `data_edicao` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `clientes`
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `migrations`
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   KEY `password_resets_email_index` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -108,15 +108,38 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `data_edicao` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_tipo_pedido` (`id_tipo_pedido`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
 INSERT INTO `pedidos` (`id`, `id_tipo_pedido`, `valor_risco_provavel`, `status`, `data_criacao`, `data_edicao`) VALUES
-(5, 2, 222, 'status1', '2018-10-29 08:46:27', NULL),
-(6, 1, 333, 'status2', '2018-10-29 08:46:40', NULL);
+(1, 2, 650.5, 'status1', '2018-10-29 08:46:27', '2018-10-29 18:21:51'),
+(2, 1, 450, 'status2', '2018-10-29 08:46:40', '2018-10-29 18:24:56');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedido_processo`
+--
+
+DROP TABLE IF EXISTS `pedido_processo`;
+CREATE TABLE IF NOT EXISTS `pedido_processo` (
+  `pedido_id` int(11) NOT NULL,
+  `processo_id` int(11) NOT NULL,
+  KEY `pedido_processo_ibfk_1` (`pedido_id`),
+  KEY `pedido_processo_ibfk_2` (`processo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `pedido_processo`
+--
+
+INSERT INTO `pedido_processo` (`pedido_id`, `processo_id`) VALUES
+(2, 4),
+(1, 5),
+(2, 6);
 
 -- --------------------------------------------------------
 
@@ -127,26 +150,27 @@ INSERT INTO `pedidos` (`id`, `id_tipo_pedido`, `valor_risco_provavel`, `status`,
 DROP TABLE IF EXISTS `processos`;
 CREATE TABLE IF NOT EXISTS `processos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
   `nro_processo` varchar(40) COLLATE utf8_bin NOT NULL,
   `data_distribuicao` date NOT NULL,
-  `reu_principal` varchar(200) COLLATE utf8_bin NOT NULL,
   `valor_causa` float NOT NULL,
   `vara` varchar(60) COLLATE utf8_bin NOT NULL,
   `cidade` varchar(100) COLLATE utf8_bin NOT NULL,
   `uf` char(2) COLLATE utf8_bin NOT NULL,
   `data_criacao` timestamp NULL DEFAULT NULL,
   `data_edicao` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  PRIMARY KEY (`id`),
+  KEY `id_cliente` (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `processos`
 --
 
-INSERT INTO `processos` (`id`, `nro_processo`, `data_distribuicao`, `reu_principal`, `valor_causa`, `vara`, `cidade`, `uf`, `data_criacao`, `data_edicao`) VALUES
-(2, '11111', '2018-10-11', 'João da Silva', 250, 'xxxxxxxxx', 'Porto Alegre', 'RS', '2018-10-29 00:51:55', '2018-10-29 01:46:47'),
-(3, '22222', '2018-10-12', 'Maria de Lurdes', 320, 'xxxxxxxx', 'Florianópolis', 'SC', '2018-10-29 01:03:07', '2018-10-29 01:47:25'),
-(4, '333333', '2018-10-04', 'Bruna Souza', 550, 'xxxxxxx', 'Curitiba', 'PR', '2018-10-29 01:24:27', '2018-10-29 01:48:02');
+INSERT INTO `processos` (`id`, `id_cliente`, `nro_processo`, `data_distribuicao`, `valor_causa`, `vara`, `cidade`, `uf`, `data_criacao`, `data_edicao`) VALUES
+(4, 3, '11111', '2018-10-10', 220, 'aaaaa', 'Porto Alegre', 'RS', '2018-10-29 18:12:33', '2018-10-29 18:18:38'),
+(5, 1, '22222', '2018-10-11', 350, 'bbbbb', 'Florianópolis', 'SC', '2018-10-29 18:13:16', NULL),
+(6, 8, '33333', '2018-10-25', 550, 'ccccc', 'Curitiba', 'PR', '2018-10-29 18:19:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `tipopedidos` (
   `nome` varchar(100) COLLATE utf8_bin NOT NULL,
   `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `tipopedidos`
@@ -193,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `users`
@@ -210,7 +234,20 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `provider`, `p
 -- Limitadores para a tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_tipo_pedido`) REFERENCES `tipopedidos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_tipo_pedido`) REFERENCES `tipopedidos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `pedido_processo`
+--
+ALTER TABLE `pedido_processo`
+  ADD CONSTRAINT `pedido_processo_ibfk_1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pedido_processo_ibfk_2` FOREIGN KEY (`processo_id`) REFERENCES `processos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `processos`
+--
+ALTER TABLE `processos`
+  ADD CONSTRAINT `processos_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

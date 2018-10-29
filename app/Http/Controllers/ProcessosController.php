@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Processo;
+use App\Pedido;
+use App\Cliente;
 use DB;
 
 class ProcessosController extends Controller
@@ -22,16 +24,17 @@ class ProcessosController extends Controller
 
 	public function create(Request $request)
 	{
-	    return view('processos.add', [
-          []
-      ]);
+      $pedidos = Pedido::all();
+      $clientes = Cliente::all();
+	    return view('processos.add', ['pedidos' => $pedidos, 'clientes' => $clientes, 'selecionaCliente' => 1]);
 	}
 
 	public function edit(Request $request, $id)
 	{
-		$processo = Processo::findOrFail($id);
-	    return view('processos.add', [
-	        'model' => $processo	    ]);
+		  $processo = Processo::findOrFail($id);
+      $pedidos = Pedido::all();
+      $clientes = Cliente::all();
+	    return view('processos.add', ['model' => $processo, 'pedidos' => $pedidos, 'clientes' => $clientes, 'selecionaCliente' => $processo->cliente->id]);
 	}
 
 	public function show(Request $request, $id)
@@ -86,15 +89,18 @@ class ProcessosController extends Controller
     }	else {
 	    $processo = new Processo;
 		}
+    $processo->id_cliente = $request->id_cliente;
     $processo->nro_processo = $request->nro_processo;
     $processo->data_distribuicao = $request->data_distribuicao;
-    $processo->reu_principal = $request->reu_principal;
     $processo->valor_causa = $request->valor_causa;
     $processo->vara = $request->vara;
     $processo->cidade = $request->cidade;
     $processo->uf = $request->uf;
     $processo->data_edicao = $request->data_edicao;
     $processo->save();
+
+    $pedido = Pedido::find($request->pedido);
+    $processo->pedido()->attach($pedido);
 
     return redirect('/processos');
 	}

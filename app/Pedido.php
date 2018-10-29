@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Processo;
 
 class Pedido extends Model
 {
@@ -14,4 +15,8 @@ class Pedido extends Model
         return $this->hasOne('App\Tipopedido', 'id', 'id_tipo_pedido');
     }
 
+    public function processo()
+    {
+        return $this->belongsToMany(Processo::class);
+    }
 }

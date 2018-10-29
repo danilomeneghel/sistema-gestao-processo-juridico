@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}">
 
+    <!-- MultiSelect -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-multiselect.css') }}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -90,13 +93,17 @@
   	<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
   	<script type="text/javascript" src="{{ asset('js/bootstrap.js') }}"></script>
 
+    <!-- MultiSelect -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap-multiselect.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/multiselect.js') }}"></script>
+
   	<!-- App -->
   	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
-
+    
     <script>
       $.ajaxSetup({
           headers: {

@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="<?php echo e(asset('css/dataTables.bootstrap.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('css/responsive.dataTables.min.css')); ?>">
 
+    <!-- MultiSelect -->
+    <link rel="stylesheet" href="<?php echo e(asset('css/bootstrap-multiselect.css')); ?>">
+
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 </head>
@@ -91,13 +94,17 @@
   	<script type="text/javascript" src="<?php echo e(asset('js/jquery.js')); ?>"></script>
   	<script type="text/javascript" src="<?php echo e(asset('js/bootstrap.js')); ?>"></script>
 
+    <!-- MultiSelect -->
+    <script type="text/javascript" src="<?php echo e(asset('js/bootstrap-multiselect.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(asset('js/multiselect.js')); ?>"></script>
+
   	<!-- App -->
   	<script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>
 
     <script type="text/javascript" src="<?php echo e(asset('js/jquery.dataTables.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/dataTables.bootstrap.min.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/dataTables.responsive.min.js')); ?>"></script>
-
+    
     <script>
       $.ajaxSetup({
           headers: {
