@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Pedido;
+use App\Tipopedido;
 use DB;
 
 class PedidosController extends Controller
@@ -22,21 +23,20 @@ class PedidosController extends Controller
 
 	public function create(Request $request)
 	{
-	    return view('pedidos.add', [
-          []
-      ]);
+      $tipopedidos = Tipopedido::all();
+      return view('pedidos.add', ['tipopedidos' => $tipopedidos, 'selecionaTipopedido' => 1]);
 	}
 
 	public function edit(Request $request, $id)
 	{
-		$pedido = Pedido::findOrFail($id);
-	    return view('pedidos.add', [
-	        'model' => $pedido	    ]);
+      $pedido = Pedido::findOrFail($id);
+      $tipopedidos = Tipopedido::all();
+	    return view('pedidos.add', ['model' => $pedido, 'tipopedidos' => $tipopedidos, 'selecionaTipopedido' => $pedido->tipopedido->id]);
 	}
 
 	public function show(Request $request, $id)
 	{
-		$pedido = Pedido::findOrFail($id);
+		  $pedido = Pedido::findOrFail($id);
 	    return view('pedidos.show', [
 	        'model' => $pedido	    ]);
 	}
@@ -49,7 +49,7 @@ class PedidosController extends Controller
 		$select = "SELECT *,1,2 ";
 		$presql = " FROM pedidos a ";
 		if($_GET['search']['value']) {
-			$presql .= " WHERE tipo_pedido LIKE '%".$_GET['search']['value']."%' ";
+			$presql .= " WHERE id_tipo_pedido LIKE '%".$_GET['search']['value']."%' ";
 		}
 
 		$presql .= "  ";
@@ -86,7 +86,7 @@ class PedidosController extends Controller
     }	else {
 	    $pedido = new Pedido;
 		}
-    $pedido->tipo_pedido = $request->tipo_pedido;
+    $pedido->id_tipo_pedido = $request->id_tipo_pedido;
     $pedido->valor_risco_provavel = $request->valor_risco_provavel;
     $pedido->status = $request->status;
     $pedido->data_edicao = $request->data_edicao;

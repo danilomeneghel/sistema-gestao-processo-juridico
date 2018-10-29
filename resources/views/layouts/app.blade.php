@@ -50,7 +50,6 @@
           					<li class="menu-item"><a href="{{ route('processos') }}">Processo</a></li>
           					<li class="menu-item"><a href="{{ route('pedidos') }}">Pedidos</a></li>
           					<li class="menu-item"><a href="{{ route('tipopedidos') }}">Tipo Pedidos</a></li>
-          					<li class="menu-item"><a href="{{ route('clientes') }}">Clientes</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->

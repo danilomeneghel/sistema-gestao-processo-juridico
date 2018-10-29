@@ -28,12 +28,3 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('/tipopedidos', 'TipopedidosController');
   Route::any('/tipopedidos', 'TipopedidosController@index')->name('tipopedidos');
 });
-
-Route::get('/processos/grid', 'ProcessosController@grid');
-Route::resource('/processos', 'ProcessosController');
-Route::get('/pedidos/grid', 'PedidosController@grid');
-Route::resource('/pedidos', 'PedidosController');
-Route::get('/tipopedidos/grid', 'TipopedidosController@grid');
-Route::resource('/tipopedidos', 'TipopedidosController');
-Route::get('/clientes/grid', 'ClientesController@grid');
-Route::resource('/clientes', 'ClientesController');

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 28-Out-2018 às 23:32
+-- Generation Time: 29-Out-2018 às 05:14
 -- Versão do servidor: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -101,21 +101,14 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
 DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE IF NOT EXISTS `pedidos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tipo_pedido` int(11) NOT NULL,
+  `id_tipo_pedido` int(11) NOT NULL,
   `valor_risco_provavel` float NOT NULL,
   `status` varchar(20) COLLATE utf8_bin NOT NULL,
   `data_criacao` timestamp NULL DEFAULT NULL,
   `data_edicao` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Extraindo dados da tabela `pedidos`
---
-
-INSERT INTO `pedidos` (`id`, `tipo_pedido`, `valor_risco_provavel`, `status`, `data_criacao`, `data_edicao`) VALUES
-(6, 9999, 560, 'qweqwe', '2018-10-29 02:28:35', '2018-10-29 02:28:46'),
-(5, 8888, 222, 'asdasd', '2018-10-29 02:28:06', NULL);
+  PRIMARY KEY (`id`),
+  KEY `id_tipo_pedido` (`id_tipo_pedido`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -159,7 +152,7 @@ CREATE TABLE IF NOT EXISTS `tipopedidos` (
   `nome` varchar(100) COLLATE utf8_bin NOT NULL,
   `ativo` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Extraindo dados da tabela `tipopedidos`
@@ -169,7 +162,7 @@ INSERT INTO `tipopedidos` (`id`, `nome`, `ativo`) VALUES
 (1, 'Horas Extras', 1),
 (2, 'Dano Moral', 1),
 (3, 'Dano Material', 1),
-(4, 'Outros', 0);
+(4, 'Outros', 1);
 
 -- --------------------------------------------------------
 
@@ -199,7 +192,17 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `avatar`, `provider`, `provider_id`, `access_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, 'X4GZ3ECyCxvCd8AfqxL8iTSgHCL0XAPi71nnaGbYxnuiwIB4kvGmaVKaykyr', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
+(1, 'Administrador', 'admin@admin.com', '$2y$10$32P74m3wT4laGfMREyd5I.iKrfdb8FqzbkBYnACfUA2JTwFs3YXO.', NULL, NULL, NULL, NULL, 'VneYmhDCCn9ruKvyYJvSye0MVx0ie21ZQbrqU1oAEcZ3RAXuK9PkDcVK1sGE', '2018-10-28 02:02:42', '2018-10-28 02:02:42');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_tipo_pedido`) REFERENCES `tipopedidos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

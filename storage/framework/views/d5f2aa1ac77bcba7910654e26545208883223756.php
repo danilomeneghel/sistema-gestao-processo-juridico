@@ -21,9 +21,15 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
+                <label for="id_tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
                 <div class="col-sm-2">
-                    <input type="number" name="tipo_pedido" id="tipo_pedido" class="form-control" value="<?php echo e(isset($model['tipo_pedido']) ? $model['tipo_pedido'] : ''); ?>">
+                    <select name="id_tipo_pedido" id="id_tipo_pedido" class="form-control">
+                        <?php if($tipopedidos->count()): ?>
+                            <?php $__currentLoopData = $tipopedidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tipopedido): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <option value="<?php echo e($tipopedido->id); ?>" <?php echo e($selecionaTipopedido == $tipopedido->id ? "selected=selected" : ""); ?>><?php echo e($tipopedido->nome); ?></option>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php endif; ?>
+                    </select>
                 </div>
             </div>
             <div class="form-group">

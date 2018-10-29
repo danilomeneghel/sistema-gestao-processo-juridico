@@ -9,7 +9,7 @@
           <thead>
             <tr>
                 <th>Id</th>
-                <th>Tipo Pedido</th>
+                <th>Id Tipo Pedido</th>
                 <th>Valor Risco Provavel</th>
                 <th>Status</th>
                 <th>Data Criação</th>

@@ -50,7 +50,6 @@
           					<li class="menu-item"><a href="<?php echo e(route('processos')); ?>">Processo</a></li>
           					<li class="menu-item"><a href="<?php echo e(route('pedidos')); ?>">Pedidos</a></li>
           					<li class="menu-item"><a href="<?php echo e(route('tipopedidos')); ?>">Tipo Pedidos</a></li>
-          					<li class="menu-item"><a href="<?php echo e(route('clientes')); ?>">Clientes</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->

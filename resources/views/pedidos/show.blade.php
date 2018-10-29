@@ -20,9 +20,9 @@
 
         
         <div class="form-group">
-            <label for="tipo_pedido" class="col-sm-3 control-label">Tipo Pedido</label>
+            <label for="id_tipo_pedido" class="col-sm-3 control-label">Id Tipo Pedido</label>
             <div class="col-sm-6">
-                <input type="text" name="tipo_pedido" id="tipo_pedido" class="form-control" value="{{$model['tipo_pedido'] or ''}}" readonly="readonly">
+                <input type="text" name="id_tipo_pedido" id="id_tipo_pedido" class="form-control" value="{{$model['id_tipo_pedido'] or ''}}" readonly="readonly">
             </div>
         </div>
 
