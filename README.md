@@ -41,26 +41,22 @@ $ cd legal_insights
 $ composer install
 ```
 
-Then create a database with name legal_insights in your mysql.
-Then run the following commands:
+Crie um banco de dados com o nome "legal_insights" no seu Mysql.
+Você encontra o dump na raiz do projeto (legal_insights.sql) e pode efetuar importação da seguinte forma:
 
 ```
 $ mysql -u <your user> -p <your password>
 
 mysql> create database `legal_insights`;
+
+mysql> use `legal_insights`;
+
+mysql> source legal_insights.sql
 ```
 
-Back to terminal, check if the .env file has the correct data to connect to the database and run Artisan:
+Volte o terminal, verifique o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
 
-```
-$ php artisan key:generate
-
-$ php artisan migrate
-
-$ php artisan db:seed
-```
-
-After everything is done, run the project:
+Depois de realizado isso, rode o projeto:
 
 ```
 $ php artisan serve
