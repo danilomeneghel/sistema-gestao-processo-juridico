@@ -86,15 +86,15 @@ Projeto licenciado sob <a href="license.md">The MIT License (MIT)</a>.
 
 ## Screenshots
 
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot01.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot02.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot03.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot04.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot05.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot06.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot07.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot08.png)<br><br>
-![alt text](https://github.com/danilomeneghel/legal_insights/blob/master/screenshots/screenshot09.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot01.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot02.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot03.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot04.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot05.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot06.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot07.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot08.png)<br><br>
+![alt text](https://raw.githubusercontent.com/danilomeneghel/legal_insights/master/screenshots/screenshot09.png)<br><br>
 
 
 Developed by<br>
