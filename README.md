@@ -62,7 +62,7 @@ Depois de realizado isso, rode o projeto:
 $ php artisan serve
 ```
 
-Finally open http://localhost:8000/ in your browser.
+Finalmente abra http://localhost:8000/ em seu navegador.
 
 ## Login
 
