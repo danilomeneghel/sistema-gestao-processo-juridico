@@ -67,13 +67,11 @@ Finalmente abra http://localhost:8000/ em seu navegador.
 ## Demonstração
 
 Para ver o sistema rodando, basta acessar o seguinte endereço:<br>
-http://legal-insights.herokuapp.com/public/<br>
+http://legal-insights.herokuapp.com/<br>
 
 	- Login:
 		- E-mail: admin@admin.com
 		- Senha: admin123
-	
-```
 
 ## Criação de Novos Módulos
 
