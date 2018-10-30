@@ -99,9 +99,13 @@
     <script type="text/javascript" src="{{ asset('js/multiselect.js') }}"></script>
 
     <!-- Cidades/Estados -->
-    <script type="text/javascript" src="/vendor/artesaos/cidades/js/scripts.js"></script>
-    <script type="text/javascript" src="{{ asset('js/cidades-estados.js') }}"></script>
+    <script type="text/javascript">
+      var APP_URL = {!! json_encode(url('/')) !!};
+    </script>
     
+    <script type="text/javascript" src="{{ url('vendor/artesaos/cidades/js/scripts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/cidades-estados.js') }}"></script>
+
   	<!-- App -->
   	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 

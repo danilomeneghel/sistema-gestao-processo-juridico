@@ -9,7 +9,7 @@
             'onChange': function(uf){}
         }, options );
 
-        $.get("/ufs", null, function (json) {
+        $.get(APP_URL+"/ufs", null, function (json) {
 
             $.each(json, function (key, value) {
                 select.append('<option value="' + value.uf + '" '+(settings.default==value.uf?'selected':'')+'>' + value.uf + '</option>');
@@ -41,7 +41,7 @@
 
             select.html('<option>Carregando..</option>');
 
-            $.get("/cidades/"+settings.uf, null, function (json) {
+            $.get(APP_URL+"/cidades/"+settings.uf, null, function (json) {
                 //select.html('<option value="">Selecione</option>');
 
                 $.each(json, function (key, value) {
