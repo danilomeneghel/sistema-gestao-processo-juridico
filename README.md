@@ -64,10 +64,14 @@ $ php artisan serve
 
 Finalmente abra http://localhost:8000/ em seu navegador.
 
-## Login
+## Demonstração
 
-	- E-mail: admin@admin.com
-	- Senha: admin123
+Para ver o sistema rodando, basta acessar o seguinte endereço:<br>
+http://legal-insights.herokuapp.com/public/<br>
+
+	- Login:
+		- E-mail: admin@admin.com
+		- Senha: admin123
 	
 ```
 
@@ -101,4 +105,3 @@ Developed by<br>
 Danilo Meneghel<br>
 danilo.meneghel@gmail.com<br>
 http://danilomeneghel.github.io/<br>
-
