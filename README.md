@@ -69,9 +69,9 @@ Finalmente abra http://localhost:8000/ em seu navegador.
 Para ver o sistema rodando, basta acessar o seguinte endereço:<br>
 http://legal-insights.herokuapp.com/<br>
 
-	- Login:
-		- E-mail: admin@admin.com
-		- Senha: admin123
+- Login:
+	- E-mail: admin@admin.com
+	- Senha: admin123
 
 ## Criação de Novos Módulos
 
@@ -96,7 +96,7 @@ Projeto licenciado sob <a href="license.md">The MIT License (MIT)</a>.
 ![Screenshots](screenshots/screenshot06.png) <br><br>
 ![Screenshots](screenshots/screenshot07.png) <br><br>
 ![Screenshots](screenshots/screenshot08.png) <br><br>
-![Screenshots](screenshots/screenshot09.png) <br><br>
+![Screenshots](legal_insights_er.png) <br><br>
 
 
 Developed by<br>
