@@ -42,7 +42,7 @@
             select.html('<option>Carregando..</option>');
 
             $.get(APP_URL+"/cidades/"+settings.uf, null, function (json) {
-                //select.html('<option value="">Selecione</option>');
+                select.html('<option value="">Selecione</option>');
 
                 $.each(json, function (key, value) {
                     select.append('<option value="' + value.nome + '" '+(settings.default==value.nome?'selected':'')+'>' + value.nome + '</option>');

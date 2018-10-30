@@ -102,9 +102,9 @@
     <script type="text/javascript">
       var APP_URL = {!! json_encode(url('/')) !!};
     </script>
-    
-    <script type="text/javascript" src="{{ url('vendor/artesaos/cidades/js/scripts.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/cidades-estados.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('js/ufs-cidades.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/scripts-ufs-cidades.js') }}"></script>
 
   	<!-- App -->
   	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
