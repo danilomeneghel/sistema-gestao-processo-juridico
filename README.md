@@ -84,7 +84,7 @@ php artisan make:crud TABLE_NAME --master-layout=layouts.app
 
 ## Licença
 
-Projeto licenciado sob <a href="license.md">The MIT License (MIT)</a>.
+Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 
 ## Screenshots
 
