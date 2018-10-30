@@ -100,7 +100,7 @@
     <script type="text/javascript" src="<?php echo e(asset('js/multiselect.js')); ?>"></script>
 
     <!-- Cidades/Estados -->
-    <script type="text/javascript" src="/vendor/artesaos/cidades/js/scripts.js"></script>
+    <script type="text/javascript" src="<?php echo e(url('vendor/artesaos/cidades/js/scripts.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/cidades-estados.js')); ?>"></script>
     
   	<!-- App -->
