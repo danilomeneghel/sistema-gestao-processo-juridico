@@ -70,15 +70,8 @@
                               </a>
 
                               <ul class="dropdown-menu" role="menu">
-                                  <li>
-                                      <a href="<?php echo e(route('logout')); ?>" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                          Logout
-                                      </a>
-                                      <form id="logout-form" action="<?php echo e(route('logout')); ?>" method="POST" style="display: none;">
-                                          <?php echo e(csrf_field()); ?>
-
-                                      </form>
-                                  </li>
+								  <li><a href="<?php echo e(url('profile/'.Auth::user()->id.'/edit')); ?>">Perfil</a></li>
+								  <li><a href="<?php echo e(url('logout')); ?>">Logout</a></li>
                               </ul>
                           </li>
                       <?php endif; ?>
@@ -104,8 +97,8 @@
       var APP_URL = <?php echo json_encode(url('/')); ?>;
     </script>
 
-    <script type="text/javascript" src="<?php echo e(asset('js/ufs-cidades.js')); ?>"></script>
     <script type="text/javascript" src="<?php echo e(asset('js/scripts-ufs-cidades.js')); ?>"></script>
+    <script type="text/javascript" src="<?php echo e(asset('js/ufs-cidades.js')); ?>"></script>
 
   	<!-- App -->
   	<script type="text/javascript" src="<?php echo e(asset('js/app.js')); ?>"></script>

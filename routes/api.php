@@ -16,9 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-// Cadastro
-Route::get('pessoas', 'PessoaController@lista');
-Route::post('pessoas', 'PessoaController@novo');
-Route::put('pessoa/{id}', 'PessoaController@editar');
-Route::delete('pessoa/{id}', 'PessoaController@excluir');

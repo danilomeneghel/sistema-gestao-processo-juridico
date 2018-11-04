@@ -4,6 +4,8 @@ Route::get('/', function () {
     return view('/auth/login');
 });
 
+Route::get('/logout', 'Auth\LoginController@logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
@@ -15,12 +17,13 @@ Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderC
 
 // Routes after Auth
 Route::middleware(['auth'])->group(function () {
+	Route::resource('/profile', 'Auth\RegisterController');
 	Route::get('/clientes/grid', 'ClientesController@grid');
 	Route::resource('/clientes', 'ClientesController');
-  Route::get('/processos/grid', 'ProcessosController@grid');
-  Route::resource('/processos', 'ProcessosController');
-  Route::get('/pedidos/grid', 'PedidosController@grid');
-  Route::resource('/pedidos', 'PedidosController');
-  Route::get('/tipopedidos/grid', 'TipopedidosController@grid');
-  Route::resource('/tipopedidos', 'TipopedidosController');
+	Route::get('/processos/grid', 'ProcessosController@grid');
+	Route::resource('/processos', 'ProcessosController');
+	Route::get('/pedidos/grid', 'PedidosController@grid');
+	Route::resource('/pedidos', 'PedidosController');
+	Route::get('/tipopedidos/grid', 'TipopedidosController@grid');
+	Route::resource('/tipopedidos', 'TipopedidosController');
 });

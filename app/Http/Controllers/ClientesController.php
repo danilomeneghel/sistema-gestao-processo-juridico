@@ -11,11 +11,11 @@ use DB;
 class ClientesController extends Controller
 {
 
-  public function __construct()
-  {
-  }
+	public function __construct()
+	{
+	}
 
-  public function index(Request $request)
+	public function index(Request $request)
 	{
 	    return view('clientes.index', []);
 	}
@@ -82,16 +82,16 @@ class ClientesController extends Controller
 	public function update(Request $request) {
 		$cliente = null;
 		if($request->id > 0) {
-      $cliente = Cliente::findOrFail($request->id);
-    }	else {
-		  $cliente = new Cliente;
+			$cliente = Cliente::findOrFail($request->id);
+		} else {
+			$cliente = new Cliente;
 		}
-    $cliente->nome = $request->nome;
-    $cliente->email = $request->email;
-    $cliente->data_edicao = $request->data_edicao;
-    $cliente->save();
+		$cliente->nome = $request->nome;
+		$cliente->email = $request->email;
+		$cliente->data_edicao = $request->data_edicao;
+		$cliente->save();
 
-    return redirect('/clientes');
+		return redirect('/clientes');
 	}
 
 	public function store(Request $request)
