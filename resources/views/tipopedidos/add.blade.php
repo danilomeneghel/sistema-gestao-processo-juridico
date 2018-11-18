@@ -24,7 +24,7 @@
             <div class="form-group">
                 <label for="nome" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="nome" id="nome" class="form-control" value="{{$model['nome'] or ''}}">
+                    <input type="text" name="nome" id="nome" class="form-control" value="{{$model['nome'] or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">

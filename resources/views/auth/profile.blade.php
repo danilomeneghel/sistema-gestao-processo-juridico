@@ -8,19 +8,19 @@
 
     <div class="panel-body">
 
-        <form action="{{ url('/profile/'.$model->id) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/profile') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             @if (isset($model))
-                <input type="hidden" name="_method" value="PATCH">
+                <input type="hidden" name="_method" value="PUT">
             @endif
-			
-			<input type="hidden" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
-			
+
+            <input type="hidden" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
+
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="name" class="form-control" value="{{$model['name'] or ''}}" readonly="readonly">
+                    <input type="text" name="name" id="name" class="form-control" value="{{$model['name'] or ''}}">
                 </div>
             </div>
             <div class="form-group">
@@ -29,7 +29,7 @@
                     <input type="text" name="email" id="email" class="form-control" value="{{$model['email'] or ''}}" readonly="readonly">
                 </div>
             </div>
-			<div class="form-group">
+	          <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Senha</label>
                 <div class="col-sm-6">
                     <input type="text" name="password" id="password" class="form-control" value="">

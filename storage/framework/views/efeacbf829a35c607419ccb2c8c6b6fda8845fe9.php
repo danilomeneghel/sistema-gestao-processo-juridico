@@ -6,20 +6,20 @@
 
     <div class="panel-body">
 
-        <form action="<?php echo e(url('/profile/'.$model->id)); ?>" method="POST" class="form-horizontal">
+        <form action="<?php echo e(url('/profile')); ?>" method="POST" class="form-horizontal">
             <?php echo e(csrf_field()); ?>
 
 
             <?php if(isset($model)): ?>
-                <input type="hidden" name="_method" value="PATCH">
+                <input type="hidden" name="_method" value="PUT">
             <?php endif; ?>
-			
-			<input type="hidden" name="id" id="id" class="form-control" value="<?php echo e(isset($model['id']) ? $model['id'] : ''); ?>" readonly="readonly">
-			
+
+            <input type="hidden" name="id" id="id" class="form-control" value="<?php echo e(isset($model['id']) ? $model['id'] : ''); ?>" readonly="readonly">
+
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="name" class="form-control" value="<?php echo e(isset($model['name']) ? $model['name'] : ''); ?>" readonly="readonly">
+                    <input type="text" name="name" id="name" class="form-control" value="<?php echo e(isset($model['name']) ? $model['name'] : ''); ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
                     <input type="text" name="email" id="email" class="form-control" value="<?php echo e(isset($model['email']) ? $model['email'] : ''); ?>" readonly="readonly">
                 </div>
             </div>
-			<div class="form-group">
+	          <div class="form-group">
                 <label for="password" class="col-sm-3 control-label">Senha</label>
                 <div class="col-sm-6">
                     <input type="text" name="password" id="password" class="form-control" value="">

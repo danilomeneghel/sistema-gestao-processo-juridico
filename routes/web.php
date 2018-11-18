@@ -5,8 +5,8 @@ Route::get('/', function () {
 });
 
 Route::get('/logout', 'Auth\LoginController@logout');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/register', 'Auth\RegisterController@index');
+Route::post('/register', 'Auth\RegisterController@create');
 
 Auth::routes();
 
@@ -17,7 +17,9 @@ Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderC
 
 // Routes after Auth
 Route::middleware(['auth'])->group(function () {
-	Route::resource('/profile', 'Auth\RegisterController');
+  Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/profile', 'Auth\RegisterController@edit');
+	Route::put('/profile', 'Auth\RegisterController@update');
 	Route::get('/clientes/grid', 'ClientesController@grid');
 	Route::resource('/clientes', 'ClientesController');
 	Route::get('/processos/grid', 'ProcessosController@grid');

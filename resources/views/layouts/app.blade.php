@@ -41,7 +41,7 @@
                   </button>
 
                   <!-- Branding Image -->
-                  <a class="navbar-brand" href="{{ url('home') }}">
+                  <a class="navbar-brand" href="{{ url('/home') }}">
                       Legal Insights
                   </a>
               </div>
@@ -49,11 +49,11 @@
               <div class="collapse navbar-collapse" id="app-navbar-collapse">
                   <!-- Left Side Of Navbar -->
         				  <ul class="nav nav-navbar navbar-left">
-          					<li class="menu-item"><a href="{{ url('home') }}">Home</a></li>
-          					<li class="menu-item"><a href="{{ url('processos') }}">Processo</a></li>
-          					<li class="menu-item"><a href="{{ url('pedidos') }}">Pedidos</a></li>
-          					<li class="menu-item"><a href="{{ url('tipopedidos') }}">Tipo Pedidos</a></li>
-          					<li class="menu-item"><a href="{{ url('clientes') }}">Clientes</a></li>
+          					<li class="menu-item"><a href="{{ url('/home') }}">Home</a></li>
+          					<li class="menu-item"><a href="{{ url('/processos') }}">Processo</a></li>
+          					<li class="menu-item"><a href="{{ url('/pedidos') }}">Pedidos</a></li>
+          					<li class="menu-item"><a href="{{ url('/tipopedidos') }}">Tipo Pedidos</a></li>
+          					<li class="menu-item"><a href="{{ url('/clientes') }}">Clientes</a></li>
         				  </ul>
 
                   <!-- Right Side Of Navbar -->
@@ -70,8 +70,8 @@
                               </a>
 
                               <ul class="dropdown-menu" role="menu">
-								  <li><a href="{{ url('profile/'.Auth::user()->id.'/edit') }}">Perfil</a></li>
-								  <li><a href="{{ url('logout') }}">Logout</a></li>
+                								  <li><a href="{{ url('/profile') }}">Perfil</a></li>
+                								  <li><a href="{{ url('/logout') }}">Sair</a></li>
                               </ul>
                           </li>
                       @endif

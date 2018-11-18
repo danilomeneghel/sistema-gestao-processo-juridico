@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -55,49 +56,49 @@ class RegisterController extends Controller
         ]);
     }
 
-	protected function index(Request $request)
-	{
-	}
-	
+  	protected function index(Request $request)
+  	{
+  	}
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
      * @return \App\User
      */
-	protected function create(array $data)
+  	protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+          return User::create([
+              'name' => $data['name'],
+              'email' => $data['email'],
+              'password' => bcrypt($data['password']),
+          ]);
     }
-	
-	protected function edit(Request $request, $id)
-	{
-		$user = User::findOrFail($id);
-		
-	    return view('auth.profile', [
-	        'model' => $user 
-		]);
-	}
 
-	protected function update(Request $request) {
-		if($request->password != null) {
-			$user = User::findOrFail($request->id);			
-			$user->name = $request->name;
-			$user->email = $request->email;
-			$user->password = bcrypt($request->password);
-			$user->save();
-			return redirect('/logout');
-		}
-		
+  	protected function edit(Request $request)
+  	{
+  		  $user = User::findOrFail(Auth::user()->id);
+
+  	    return view('auth.profile', [
+  	        'model' => $user
+  		]);
+  	}
+
+  	protected function update(Request $request) {
+  		if($request->password != null) {
+    			$user = User::findOrFail($request->id);
+    			$user->name = $request->name;
+    			$user->email = $request->email;
+    			$user->password = bcrypt($request->password);
+    			$user->save();
+    			return redirect('/logout');
+  		}
+
 	    return redirect('/home');
-	}
-	
-	protected function show(Request $request, $id)
-	{
-	}
-	
+  	}
+
+  	protected function show(Request $request, $id)
+  	{
+  	}
+
 }
