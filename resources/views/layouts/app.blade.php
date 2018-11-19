@@ -1,31 +1,28 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Legal Insights</title>
 
 	  <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
 	  <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ secure_asset('bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bootstrap/dist/css/bootstrap.min.css') }}">
 
 	  <!-- DataTables -->
-    <link rel="stylesheet" href="{{ secure_asset('css/dataTables.bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ secure_asset('css/responsive.dataTables.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}">
 
     <!-- MultiSelect -->
-    <link rel="stylesheet" href="{{ secure_asset('css/bootstrap-multiselect.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-multiselect.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
-</head>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  </head>
 <body>
     <div id="app">
       <nav class="navbar navbar-default navbar-static-top">

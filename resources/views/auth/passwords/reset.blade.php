@@ -7,11 +7,11 @@
     <title>Legal Insights</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ secure_asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
   	<!-- Styles -->
-  	<link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
-  	<link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+  	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 	</head>
   <body class="bg-page">
     <div class="bg-login">
