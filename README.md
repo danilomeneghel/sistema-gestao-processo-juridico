@@ -99,7 +99,7 @@ Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 
 ## Modelo ER
 
-![Screenshots](legal_insights_er.png) <br><br>
+![Screenshots](screenshots/modelo_er.png) <br><br>
 
 
 Developed by<br>
