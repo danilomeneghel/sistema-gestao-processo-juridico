@@ -8,11 +8,11 @@
     <title>Legal Insights</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo e(secure_asset('css/font-awesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('css/font-awesome.min.css')); ?>">
 
   	<!-- Styles -->
-  	<link rel="stylesheet" href="<?php echo e(secure_asset('css/app.css')); ?>">
-  	<link rel="stylesheet" href="<?php echo e(secure_asset('css/style.css')); ?>">
+  	<link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
+  	<link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 	</head>
 	<body class="bg-page">
     <div class="bg-login">
