@@ -17,8 +17,6 @@ class CreateTipopedidosTable extends Migration
             $table->increments('id');
             $table->string('nome', 65);
             $table->string('ativo', 10);
-            $table->string('data_criacao', 20);
-            $table->string('data_edicao', 20)->nullable();
         });
     }
 

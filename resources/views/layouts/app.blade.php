@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Legal Insights</title>
+    <title>ADV Jurídico</title>
 
 	  <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
@@ -39,7 +39,7 @@
 
                   <!-- Branding Image -->
                   <a class="navbar-brand" href="{{ url('/home') }}">
-                      Legal Insights
+                      ADV Jurídico
                   </a>
               </div>
 

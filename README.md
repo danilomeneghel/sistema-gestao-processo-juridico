@@ -1,18 +1,14 @@
-# Processos Jurídicos
+# ADV - Gestão de Processos Jurídicos
 
 Sistema de cadastro de processos jurídicos, desenvolvido em PHP com Laravel.
 
-## Caracteríticas
+## Módulos
 
-- OAuth
 - Login
-- Rotas
-- CRUD
-- DataTable
-- Filtro
-- Paginador
-- View Blade
-- Responsivo
+- Processos
+- Pedidos
+- Tipo de Pedidos
+- Clientes
 
 ## Requisitos
 
