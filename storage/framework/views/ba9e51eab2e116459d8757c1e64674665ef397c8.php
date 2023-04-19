@@ -81,11 +81,6 @@
                     </form>
                 </div>
           </div>
-          <div class="text-center test-login">
-            <strong>Login Teste:</strong><br><br>
-            Email: admin@admin.com<br>
-            Senha: admin123<br>
-          </div>
 			</div>
 		</div>
 	</body>

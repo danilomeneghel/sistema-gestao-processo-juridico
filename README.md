@@ -1,4 +1,4 @@
-# Legal Insights
+# Processos Jurídicos
 
 Sistema de cadastro de processos jurídicos, desenvolvido em PHP com Laravel.
 
