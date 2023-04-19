@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ADV Jurídico</title>
+    <title>ADV - Gestão de Processo Jurídico</title>
 
 	  <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
@@ -46,8 +46,7 @@
               <div class="collapse navbar-collapse" id="app-navbar-collapse">
                   <!-- Left Side Of Navbar -->
         				  <ul class="nav nav-navbar navbar-left">
-          					<li class="menu-item"><a href="{{ url('/home') }}">Home</a></li>
-          					<li class="menu-item"><a href="{{ url('/processos') }}">Processo</a></li>
+          					<li class="menu-item"><a href="{{ url('/processos') }}">Processos</a></li>
           					<li class="menu-item"><a href="{{ url('/pedidos') }}">Pedidos</a></li>
           					<li class="menu-item"><a href="{{ url('/tipopedidos') }}">Tipo Pedidos</a></li>
           					<li class="menu-item"><a href="{{ url('/clientes') }}">Clientes</a></li>

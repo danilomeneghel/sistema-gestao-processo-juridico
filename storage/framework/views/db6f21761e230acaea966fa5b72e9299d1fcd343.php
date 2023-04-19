@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="<?php echo e(app()->getLocale()); ?>">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
     <title>ADV - Gestão de Processo Jurídico</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="<?php echo e(asset('css/font-awesome.min.css')); ?>">
 
 		<!-- Styles -->
-		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+		<link rel="stylesheet" href="<?php echo e(asset('css/app.css')); ?>">
+		<link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
 	</head>
   <body class="bg-page">
     <div class="bg-login">
@@ -20,32 +20,34 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h3>Reset Password</h3>
-                        @if (session('status'))
+                        <?php if(session('status')): ?>
                             <div class="alert alert-success">
-                                {{ session('status') }}
+                                <?php echo e(session('status')); ?>
+
                             </div>
-                        @endif
+                        <?php endif; ?>
 
-                        <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
-                            {{ csrf_field() }}
+                        <form class="form-horizontal" method="POST" action="<?php echo e(route('password.email')); ?>">
+                            <?php echo e(csrf_field()); ?>
 
-                            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+
+                            <div class="form-group<?php echo e($errors->has('email') ? ' has-error' : ''); ?>">
                                 <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                                 <div class="col-md-8">
-                                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                    <input id="email" type="email" class="form-control" name="email" value="<?php echo e(old('email')); ?>" required>
 
-                                    @if ($errors->has('email'))
+                                    <?php if($errors->has('email')): ?>
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong><?php echo e($errors->first('email')); ?></strong>
                                         </span>
-                                    @endif
+                                    <?php endif; ?>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-md-8 col-md-offset-4">
-                                    <a class="btn btn-default" href="{{ url('/') }}"><i class="fa fa-arrow-left"></i> Back</a>
+                                    <a class="btn btn-default" href="<?php echo e(url('/')); ?>"><i class="fa fa-arrow-left"></i> Back</a>
                                     <button type="submit" class="btn btn-secondary">
                                         <i class="fa fa-envelope"></i> Password Reset Link
                                     </button>

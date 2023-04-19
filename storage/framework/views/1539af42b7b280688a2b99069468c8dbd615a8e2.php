@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <title>ADV Jurídico</title>
+    <title>ADV - Gestão de Processo Jurídico</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo e(asset('css/font-awesome.min.css')); ?>">

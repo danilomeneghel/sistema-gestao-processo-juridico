@@ -40,17 +40,12 @@ $ php artisan migrate
 $ php artisan db:seed
 ```
 
-Crie um banco de dados com o nome "legal_insights" no seu Mysql.
-Você encontra o dump na raiz do projeto (legal_insights.sql) e pode efetuar importação da seguinte forma:
+Crie um banco de dados com o nome "adv" no seu Mysql.
 
 ```
 $ mysql -u <your user> -p <your password>
 
-mysql> create database `legal_insights`;
-
-mysql> use `legal_insights`;
-
-mysql> source legal_insights.sql
+mysql> create database `adv`;
 ```
 
 Volte o terminal, verifique o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
@@ -68,7 +63,7 @@ http://localhost:8000/<br>
 
 - Login:
 	- E-mail: admin@admin.com
-	- Senha: admin123
+	- Senha: admin
 
 ## Criação de Novos Módulos
 

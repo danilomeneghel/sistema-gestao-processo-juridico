@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-    <title>ADV Jurídico</title>
+    <title>ADV - Gestão de Processo Jurídico</title>
 
 	  <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo e(asset('css/font-awesome.min.css')); ?>">
@@ -46,8 +46,7 @@
               <div class="collapse navbar-collapse" id="app-navbar-collapse">
                   <!-- Left Side Of Navbar -->
         				  <ul class="nav nav-navbar navbar-left">
-          					<li class="menu-item"><a href="<?php echo e(url('/home')); ?>">Home</a></li>
-          					<li class="menu-item"><a href="<?php echo e(url('/processos')); ?>">Processo</a></li>
+          					<li class="menu-item"><a href="<?php echo e(url('/processos')); ?>">Processos</a></li>
           					<li class="menu-item"><a href="<?php echo e(url('/pedidos')); ?>">Pedidos</a></li>
           					<li class="menu-item"><a href="<?php echo e(url('/tipopedidos')); ?>">Tipo Pedidos</a></li>
           					<li class="menu-item"><a href="<?php echo e(url('/clientes')); ?>">Clientes</a></li>

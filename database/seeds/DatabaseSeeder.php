@@ -6,6 +6,7 @@ class DatabaseSeeder extends Seeder {
     {
         $this->call(ClientesTableSeeder::class);
         $this->call(CidadesTableSeeder::class);
+        $this->call(TipoPedidosTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->command->info('Tables seeded!');
     }
