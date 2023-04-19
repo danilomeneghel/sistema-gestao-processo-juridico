@@ -1,6 +1,6 @@
 # Legal Insights
 
-Projeto realizado para empresa Legal Insights, desenvolvido em PHP com Laravel.
+Sistema de cadastro de processos jurídicos, desenvolvido em PHP com Laravel.
 
 ## Caracteríticas
 
@@ -30,15 +30,18 @@ Projeto realizado para empresa Legal Insights, desenvolvido em PHP com Laravel.
 - Bootstrap
 - Composer
 - Artisan
+- Laravel
 
 ## Instalação
 
 ```
-$ git clone https://github.com/danilomeneghel/legal_insights.git
-
-$ cd legal_insights
-
 $ composer install
+
+$ php artisan key:generate
+
+$ php artisan migrate
+
+$ php artisan db:seed
 ```
 
 Crie um banco de dados com o nome "legal_insights" no seu Mysql.
@@ -62,12 +65,10 @@ Depois de realizado isso, rode o projeto:
 $ php artisan serve
 ```
 
-Finalmente abra http://localhost:8000/ em seu navegador.
+## Acesso ao Sistema
 
-## Demonstração
-
-Para ver o sistema rodando, basta acessar o seguinte endereço:<br>
-http://legal-insights.herokuapp.com/<br>
+Para acessar o sistema utilize o seguinte endereço:<br>
+http://localhost:8000/<br>
 
 - Login:
 	- E-mail: admin@admin.com
@@ -102,7 +103,7 @@ Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 ![Screenshots](screenshots/modelo_er.png) <br><br>
 
 
-Developed by<br>
+Desenvolvido por<br>
 Danilo Meneghel<br>
 danilo.meneghel@gmail.com<br>
 http://danilomeneghel.github.io/<br>
