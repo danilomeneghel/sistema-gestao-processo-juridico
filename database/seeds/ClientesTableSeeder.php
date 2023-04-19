@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Database\Seeder;
 
-class Clientes extends Seeder
+class ClientesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,62 +15,62 @@ class Clientes extends Seeder
             [
                 'nome'=>'joao',
                 'email'=>'joao@joao.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
             [
                 'nome'=>'paulo',
                 'email'=>'paulo@paulo.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
             [
                 'nome'=>'ana',
                 'email'=>'ana@ana.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'juliana',
                 'email'=>'juli@ana.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'ana maria',
                 'email'=>'ana@maria.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'ricardo',
                 'email'=>'ricardo@ricardo.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'karina',
                 'email'=>'karina@karina.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'diego',
                 'email'=>'diego@diego.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'leticia',
                 'email'=>'leticia@leticia.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
 			[
                 'nome'=>'carlos',
                 'email'=>'carlos@carlos.com',
-                'created_at'=>new Datetime,
-                'updated_at'=>new Datetime
+                'data_criacao'=>new Datetime,
+                'data_edicao'=>new Datetime
             ],
         ];
         DB::table('clientes')->insert($data);

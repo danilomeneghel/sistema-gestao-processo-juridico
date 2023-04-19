@@ -82,15 +82,15 @@ class TipopedidosController extends Controller
 	public function update(Request $request) {
 		$tipopedido = null;
 		if($request->id > 0) {
-      $tipopedido = Tipopedido::findOrFail($request->id);
-    }	else {
-	    $tipopedido = new Tipopedido;
+      			$tipopedido = Tipopedido::findOrFail($request->id);
+    		} else {
+	    		$tipopedido = new Tipopedido;
 		}
-    $tipopedido->nome = $request->nome;
-    $tipopedido->ativo = $request->ativo;
-    $tipopedido->save();
+		$tipopedido->nome = $request->nome;
+		$tipopedido->ativo = $request->ativo;
+		$tipopedido->save();
 
-    return redirect('/tipopedidos');
+		return redirect('/tipopedidos');
 	}
 
 	public function store(Request $request)

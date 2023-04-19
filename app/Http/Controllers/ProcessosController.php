@@ -84,24 +84,24 @@ class ProcessosController extends Controller
 	public function update(Request $request) {
 		$processo = null;
 		if($request->id > 0) {
-      $processo = Processo::findOrFail($request->id);
-    }	else {
-	    $processo = new Processo;
+      			$processo = Processo::findOrFail($request->id);
+    		} else {
+	    		$processo = new Processo;
 		}
-    $processo->id_cliente = $request->id_cliente;
-    $processo->nro_processo = $request->nro_processo;
-    $processo->data_distribuicao = $request->data_distribuicao;
-    $processo->valor_causa = $request->valor_causa;
-    $processo->vara = $request->vara;
-    $processo->cidade = $request->cidade;
-    $processo->uf = $request->uf;
-    $processo->data_edicao = $request->data_edicao;
-    $processo->save();
+		$processo->id_cliente = $request->id_cliente;
+		$processo->nro_processo = $request->nro_processo;
+		$processo->data_distribuicao = $request->data_distribuicao;
+		$processo->valor_causa = $request->valor_causa;
+		$processo->vara = $request->vara;
+		$processo->cidade = $request->cidade;
+		$processo->uf = $request->uf;
+		$processo->data_edicao = $request->data_edicao;
+		$processo->save();
 
-    $pedido = Pedido::find($request->pedido);
-    $processo->pedido()->attach($pedido);
+		$pedido = Pedido::find($request->pedido);
+		$processo->pedido()->attach($pedido);
 
-    return redirect('/processos');
+		return redirect('/processos');
 	}
 
 	public function store(Request $request)

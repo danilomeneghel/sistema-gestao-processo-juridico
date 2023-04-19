@@ -88,17 +88,17 @@ class PedidosController extends Controller
 	public function update(Request $request) {
 		$pedido = null;
 		if($request->id > 0) {
-      $pedido = Pedido::findOrFail($request->id);
-    }	else {
-	    $pedido = new Pedido;
+      			$pedido = Pedido::findOrFail($request->id);
+    		} else {
+	    		$pedido = new Pedido;
 		}
-    $pedido->id_tipo_pedido = $request->id_tipo_pedido;
-    $pedido->valor_risco_provavel = $request->valor_risco_provavel;
-    $pedido->status = $request->status;
-    $pedido->data_edicao = $request->data_edicao;
-    $pedido->save();
+		$pedido->id_tipo_pedido = $request->id_tipo_pedido;
+		$pedido->valor_risco_provavel = $request->valor_risco_provavel;
+		$pedido->status = $request->status;
+		$pedido->data_edicao = $request->data_edicao;
+		$pedido->save();
 
-    return redirect('/pedidos');
+		return redirect('/pedidos');
 	}
 
 	public function store(Request $request)
