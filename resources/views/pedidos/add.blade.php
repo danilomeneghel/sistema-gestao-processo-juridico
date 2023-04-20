@@ -48,9 +48,9 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a class="btn btn-default" href="{{ url('/pedidos') }}"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a class="btn btn-default" href="{{ url('/pedidos') }}"><i class="fa fa-arrow-left"></i> Voltar</a>
                     <button type="submit" class="btn btn-success">
-                        <i class="fa fa-hdd-o"></i> Save
+                        <i class="fa fa-hdd-o"></i> Salvar
                     </button>
                 </div>
             </div>

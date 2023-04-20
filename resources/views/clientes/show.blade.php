@@ -47,7 +47,7 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a class="btn btn-default" href="{{ url('/clientes') }}"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a class="btn btn-default" href="{{ url('/clientes') }}"><i class="fa fa-arrow-left"></i> Voltar</a>
                 </div>
             </div>
 

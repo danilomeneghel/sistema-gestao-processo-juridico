@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Email</label>
+                <label for="email" class="col-sm-3 control-label">E-mail</label>
                 <div class="col-sm-6">
                     <input type="text" name="email" id="email" class="form-control" value="{{$model['email'] or ''}}" readonly="readonly">
                 </div>
@@ -38,9 +38,9 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <a class="btn btn-default" href="{{ url('/home') }}"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a class="btn btn-default" href="{{ url('/home') }}"><i class="fa fa-arrow-left"></i> Voltar</a>
                     <button type="submit" class="btn btn-success">
-                        <i class="fa fa-hdd-o"></i> Save
+                        <i class="fa fa-hdd-o"></i> Salvar
                     </button>
                 </div>
             </div>

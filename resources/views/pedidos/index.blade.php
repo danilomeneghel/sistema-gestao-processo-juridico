@@ -46,12 +46,12 @@
                     },
                     {
                         "render": function ( data, type, row ) {
-                            return '<a href="{{ url('/pedidos') }}/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Update</a>';
+                            return '<a href="{{ url('/pedidos') }}/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Alterar</a>';
                         },
                         "targets": 5                    },
                     {
                         "render": function ( data, type, row ) {
-                            return '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>';
+                            return '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger"><i class="fa fa-trash"></i> Excluir</a>';
                         },
                         "targets": 5+1
                     },
@@ -59,7 +59,7 @@
             });
         });
         function doDelete(id) {
-            if(confirm('You really want to delete this record?')) {
+            if(confirm('Você realmente deseja excluir este registro?')) {
                $.ajax({ url: '{{ url('/pedidos') }}/' + id, type: 'DELETE'}).success(function() {
                 theGrid.ajax.reload();
                });

@@ -12,8 +12,8 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 
 ## Requisitos
 
-- PHP >= 5.5.9
-- MySql >=5
+- PHP >= 7.4.33
+- MySql >= 5
 - Composer
 
 ## Tecnologia
@@ -30,6 +30,23 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 
 ## Instalação
 
+Crie um banco de dados com o nome "adv" no seu Mysql.
+Verifique o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
+
+```
+$ mysql -u <your user> -p
+
+mysql> create database `adv`;
+```
+
+Após criado o banco de dados, abra o terminal e execute o seguinte comando:
+
+```
+$ ./install.sh
+```
+
+Caso de algum erro e não consiga instalar, execute os seguintes comandos separadamente:
+
 ```
 $ composer install
 
@@ -39,16 +56,6 @@ $ php artisan migrate
 
 $ php artisan db:seed
 ```
-
-Crie um banco de dados com o nome "adv" no seu Mysql.
-
-```
-$ mysql -u <your user> -p <your password>
-
-mysql> create database `adv`;
-```
-
-Volte o terminal, verifique o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
 
 Depois de realizado isso, rode o projeto:
 
@@ -88,6 +95,7 @@ Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 ![Screenshots](screenshots/screenshot06.png) <br><br>
 ![Screenshots](screenshots/screenshot07.png) <br><br>
 ![Screenshots](screenshots/screenshot08.png) <br><br>
+![Screenshots](screenshots/screenshot09.png) <br><br>
 
 ## Modelo ER
 

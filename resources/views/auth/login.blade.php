@@ -22,7 +22,7 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-body box-login">
-                    <h3 class="title-login">Login</h3>
+                    <h4 class="title-login">Gestão de Processo Jurídico</h4>
       							<form class="form-login" method="POST" action="{{ route('login') }}">
       								{{ csrf_field() }}
       								<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -44,7 +44,7 @@
       										@endif
       								</div>
       								<div class="form-group">
-      								  <input type="submit" class="btn btn-login btn-lg btn-block" value="Login">
+      								  <input type="submit" class="btn btn-login btn-lg btn-block" value="Entrar">
       								</div>
       								<!-- <div class="text-center">- OR -</div>
       								<div class="social-auth-links text-center">
@@ -65,10 +65,10 @@
       										Login with Github
       									</a>
       								</div> -->
-                      <div class="login-links">
+                                    <div class="login-links">
         							  <div class="col-xs-6">
           								<div class="pull-left">
-          								  <a ui-sref="forgot_password" href="{{ route('password.request') }}">Esqueceu a senha?</a>
+          								  <a ui-sref="forgot_password" href="{{ route('password.request') }}">Esqueceu sua senha?</a>
           								</div>
         							  </div>
         							  <div class="col-xs-6">

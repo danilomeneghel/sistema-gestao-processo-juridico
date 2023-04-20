@@ -70,7 +70,7 @@
             });
         });
         function doDelete(id) {
-            if(confirm('You really want to delete this record?')) {
+            if(confirm('Você realmente deseja excluir este registro?')) {
                $.ajax({ url: '{{ url('/[[route_path]]') }}/' + id, type: 'DELETE'}).success(function() {
                 theGrid.ajax.reload();
                });
