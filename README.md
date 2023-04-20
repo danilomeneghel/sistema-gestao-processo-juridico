@@ -30,8 +30,8 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 
 ## Instalação
 
-Crie um banco de dados com o nome "adv" no seu Mysql.
-Verifique o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
+Crie um banco de dados com o nome "adv" no seu Mysql.<br>
+Abra o arquivo .env e efetue a configuração correta para conexão do seu banco de dados.<br>
 
 ```
 $ mysql -u <your user> -p
