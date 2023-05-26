@@ -13,7 +13,7 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 ## Requisitos
 
 - PHP >= 7.4.33
-- MySql >= 5
+- MySql >= 8
 - Composer
 - Docker (opcional)
 
