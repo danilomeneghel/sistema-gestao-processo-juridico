@@ -17,7 +17,7 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 - Composer
 - Docker (opcional)
 
-## Tecnologia
+## Tecnologias
 
 - PHP
 - JS
@@ -32,7 +32,7 @@ Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
 ## Instalação
 
 ### Docker
-Abra o terminal e execute o seguite comando:
+Abra o terminal e execute o seguinte comando:
 
 ```
 $ docker-compose up
