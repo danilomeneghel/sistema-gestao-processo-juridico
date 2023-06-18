@@ -111,12 +111,3 @@ Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 ![Screenshots](screenshots/screenshot08.png) <br><br>
 ![Screenshots](screenshots/screenshot09.png) <br><br>
 
-## Modelo ER
-
-![Screenshots](screenshots/modelo_er.png) <br><br>
-
-
-Desenvolvido por<br>
-Danilo Meneghel<br>
-danilo.meneghel@gmail.com<br>
-http://danilomeneghel.github.io/<br>
