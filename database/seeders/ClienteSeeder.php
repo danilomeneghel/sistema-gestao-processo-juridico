@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 use App\Models\Cliente;
 
 class ClienteSeeder extends Seeder
@@ -14,18 +15,24 @@ class ClienteSeeder extends Seeder
      */
     public function run()
     {
+        $date = Carbon::now();
+        $createdDate = clone($date);
         $data = [
             [
                 'nome'=>'João',
                 'email'=>'joao@joao.com',
                 'telefone'=>'51999999999',
-                'genero'=>'Masculino'
+                'genero'=>'Masculino',
+                'created_at'=>$createdDate,
+                'updated_at'=>$createdDate
             ],
             [
                 'nome'=>'Ana',
                 'email'=>'ana@ana.com',
                 'telefone'=>'21888888888',
-                'genero'=>'Feminino'
+                'genero'=>'Feminino',
+                'created_at'=>$createdDate,
+                'updated_at'=>$createdDate
             ]
         ];
         Cliente::insert($data);

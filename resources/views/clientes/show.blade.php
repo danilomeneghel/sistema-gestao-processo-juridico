@@ -39,6 +39,13 @@
             </div>
 
             <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Gênero</label>
+                <div class="col-sm-6">
+                    <input type="text" name="genero" id="genero" class="form-control" value="{{$model['genero'] or ''}}" readonly="readonly">
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="created_at" class="col-sm-3 control-label">Data Criação</label>
                 <div class="col-sm-6">
                     <input type="text" name="created_at" id="created_at" class="form-control" value="{{$model['created_at'] or ''}}" readonly="readonly">
