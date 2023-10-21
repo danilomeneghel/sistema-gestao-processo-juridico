@@ -2,21 +2,16 @@
 
 @section('content')
 
-<h2 class="page-header">Perfil</h2>
+<h2 class="page-header">{{ ucfirst('perfil') }}</h2>
 
 <div class="panel panel-default">
-
     <div class="panel-body">
-
         <form action="{{ url('/profile') }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
-
             @if (isset($model))
                 <input type="hidden" name="_method" value="PUT">
             @endif
-
             <input type="hidden" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
-
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
@@ -35,7 +30,6 @@
                     <input type="text" name="password" id="password" class="form-control" value="">
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <a class="btn btn-default" href="{{ url('/home') }}"><i class="fa fa-arrow-left"></i> Voltar</a>
@@ -45,9 +39,6 @@
                 </div>
             </div>
         </form>
-
     </div>
-
 </div>
-
 @endsection

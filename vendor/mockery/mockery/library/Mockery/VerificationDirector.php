@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Mockery (https://docs.mockery.io/)
+ *
+ * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
+ * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link      https://github.com/mockery/mockery for the canonical source repository
+ */
+
 namespace Mockery;
 
 class VerificationDirector
@@ -18,12 +26,12 @@ class VerificationDirector
         return $this->receivedMethodCalls->verify($this->expectation);
     }
 
-    public function with()
+    public function with(...$args)
     {
-        return $this->cloneApplyAndVerify("with", func_get_args());
+        return $this->cloneApplyAndVerify("with", $args);
     }
 
-    public function withArgs(array $args)
+    public function withArgs($args)
     {
         return $this->cloneApplyAndVerify("withArgs", array($args));
     }

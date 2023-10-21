@@ -1,4 +1,7 @@
 <?php
+
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class ClientesTableSeeder extends Seeder
@@ -10,7 +13,7 @@ class ClientesTableSeeder extends Seeder
      */
     public function run()
     {
-       
+
         $data = [
             [
                 'nome'=>'João',

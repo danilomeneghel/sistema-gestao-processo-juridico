@@ -1,31 +1,83 @@
 <?php
 
-Route::get('/', function () {
-    return view('/auth/login');
-});
+use Illuminate\Support\Facades\Route;
 
-Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/register', 'Auth\RegisterController@index');
-Route::post('/register', 'Auth\RegisterController@create');
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\PedidoController;
+use App\Http\Controllers\ProcessoController;
+use App\Http\Controllers\TipopedidoController;
 
-Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-// Social Auth
-Route::get('auth/social', 'Auth\SocialAuthController@show')->name('social.login');
-Route::get('oauth/{driver}', 'Auth\SocialAuthController@redirectToProvider')->name('social.oauth');
-Route::get('oauth/{driver}/callback', 'Auth\SocialAuthController@handleProviderCallback')->name('social.callback');
+Route::group(['namespace' => 'App\Http\Controllers'], function()
+{
 
-// Routes after Auth
-Route::middleware(['auth'])->group(function () {
-  Route::get('/home', 'HomeController@index')->name('home');
-	Route::get('/profile', 'Auth\RegisterController@edit');
-	Route::put('/profile', 'Auth\RegisterController@update');
-	Route::get('/clientes/grid', 'ClientesController@grid');
-	Route::resource('/clientes', 'ClientesController');
-	Route::get('/processos/grid', 'ProcessosController@grid');
-	Route::resource('/processos', 'ProcessosController');
-	Route::get('/pedidos/grid', 'PedidosController@grid');
-	Route::resource('/pedidos', 'PedidosController');
-	Route::get('/tipopedidos/grid', 'TipopedidosController@grid');
-	Route::resource('/tipopedidos', 'TipopedidosController');
+	Route::group(['middleware' => ['guest']], function() {
+		Route::get('/register', 'RegisterController@show')->name('register.show');
+		Route::post('/register', 'RegisterController@register')->name('register.perform');
+
+		Route::get('/login', 'LoginController@show')->name('login.show');
+		Route::post('/login', 'LoginController@login')->name('login.perform');
+	});
+
+	Route::group(['middleware' => ['auth']], function() {
+
+		Route::get('/', 'HomeController@index')->name('home');
+
+		Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+
+        Route::get('/profile', 'RegisterController@edit')->name('profile.edit');
+        Route::put('/profile', 'RegisterController@update')->name('profile.update');
+
+        Route::prefix('clientes')->group(function(){
+		    Route::get('/', [ClienteController::class, 'index'])->name('clientes');
+		    Route::get('/create', [ClienteController::class, 'create'])->name('clientes.create');
+		    Route::post('/', [ClienteController::class, 'store'])->name('clientes.store');
+		    Route::get('/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+		    Route::put('/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+		    Route::get('/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+		    Route::get('/grid', [ClienteController::class, 'grid'])->name('clientes.grid');
+		});
+
+		Route::prefix('pedidos')->group(function(){
+		    Route::get('/', [PedidoController::class, 'index'])->name('pedidos');
+		    Route::get('/create', [PedidoController::class, 'create'])->name('pedidos.create');
+		    Route::post('/', [PedidoController::class, 'store'])->name('pedidos.store');
+		    Route::get('/{id}/edit', [PedidoController::class, 'edit'])->name('pedidos.edit');
+		    Route::put('/{id}', [PedidoController::class, 'update'])->name('pedidos.update');
+		    Route::get('/{id}', [PedidoController::class, 'destroy'])->name('pedidos.destroy');
+		    Route::get('/grid', [PedidoController::class, 'grid'])->name('pedidos.grid');
+		});
+
+		Route::prefix('processos')->group(function(){
+		    Route::get('/', [ProcessoController::class, 'index'])->name('processos');
+		    Route::get('/create', [ProcessoController::class, 'create'])->name('processos.create');
+		    Route::post('/', [ProcessoController::class, 'store'])->name('processos.store');
+		    Route::get('/{id}/edit', [ProcessoController::class, 'edit'])->name('processos.edit');
+		    Route::put('/{id}', [ProcessoController::class, 'update'])->name('processos.update');
+		    Route::get('/{id}', [ProcessoController::class, 'destroy'])->name('processos.destroy');
+		    Route::get('/grid', [ProcessoController::class, 'grid'])->name('processos.grid');
+		});
+
+        Route::prefix('tipopedidos')->group(function(){
+            Route::get('/', [TipopedidoController::class, 'index'])->name('tipopedidos');
+            Route::get('/create', [TipopedidoController::class, 'create'])->name('tipopedidos.create');
+            Route::post('/', [TipopedidoController::class, 'store'])->name('tipopedidos.store');
+            Route::get('/{id}/edit', [TipopedidoController::class, 'edit'])->name('tipopedidos.edit');
+            Route::put('/{id}', [TipopedidoController::class, 'update'])->name('tipopedidos.update');
+            Route::get('/{id}', [TipopedidoController::class, 'destroy'])->name('tipopedidos.destroy');
+            Route::get('/grid', [TipopedidoController::class, 'grid'])->name('tipopedidos.grid');
+        });
+
+	});
 });

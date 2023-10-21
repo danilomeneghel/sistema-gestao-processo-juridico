@@ -1,6 +1,6 @@
-# ADV - Gestão de Processo Jurídico
+# Gestão Jurídica
 
-Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel.
+Sistema de cadastro de processos jurídicos desenvolvido em PHP com Laravel e API REST.
 
 ## Módulos
 
@@ -111,3 +111,8 @@ Projeto licenciado sob <a href="LICENSE">The MIT License (MIT)</a>.
 ![Screenshots](screenshots/screenshot08.png) <br><br>
 ![Screenshots](screenshots/screenshot09.png) <br><br>
 
+
+Desenvolvido por<br>
+Danilo Meneghel<br>
+danilo.meneghel@gmail.com<br>
+http://danilomeneghel.github.io/<br>

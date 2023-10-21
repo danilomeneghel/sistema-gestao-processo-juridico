@@ -2,10 +2,10 @@
 
 namespace Illuminate\Mail\Transport;
 
-use Swift_Transport;
-use Swift_Mime_Message;
-use Swift_Events_SendEvent;
 use Swift_Events_EventListener;
+use Swift_Events_SendEvent;
+use Swift_Mime_SimpleMessage;
+use Swift_Transport;
 
 abstract class Transport implements Swift_Transport
 {
@@ -18,6 +18,8 @@ abstract class Transport implements Swift_Transport
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
     public function isStarted()
     {
@@ -41,6 +43,16 @@ abstract class Transport implements Swift_Transport
     }
 
     /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function ping()
+    {
+        return true;
+    }
+
+    /**
      * Register a plug-in with the transport.
      *
      * @param  \Swift_Events_EventListener  $plugin
@@ -54,10 +66,10 @@ abstract class Transport implements Swift_Transport
     /**
      * Iterate through registered plugins and execute plugins' methods.
      *
-     * @param  \Swift_Mime_Message  $message
+     * @param  \Swift_Mime_SimpleMessage  $message
      * @return void
      */
-    protected function beforeSendPerformed(Swift_Mime_Message $message)
+    protected function beforeSendPerformed(Swift_Mime_SimpleMessage $message)
     {
         $event = new Swift_Events_SendEvent($this, $message);
 
@@ -71,10 +83,10 @@ abstract class Transport implements Swift_Transport
     /**
      * Iterate through registered plugins and execute plugins' methods.
      *
-     * @param  \Swift_Mime_Message  $message
+     * @param  \Swift_Mime_SimpleMessage  $message
      * @return void
      */
-    protected function sendPerformed(Swift_Mime_Message $message)
+    protected function sendPerformed(Swift_Mime_SimpleMessage $message)
     {
         $event = new Swift_Events_SendEvent($this, $message);
 
@@ -88,10 +100,10 @@ abstract class Transport implements Swift_Transport
     /**
      * Get the number of recipients.
      *
-     * @param  \Swift_Mime_Message  $message
+     * @param  \Swift_Mime_SimpleMessage  $message
      * @return int
      */
-    protected function numberOfRecipients(Swift_Mime_Message $message)
+    protected function numberOfRecipients(Swift_Mime_SimpleMessage $message)
     {
         return count(array_merge(
             (array) $message->getTo(), (array) $message->getCc(), (array) $message->getBcc()

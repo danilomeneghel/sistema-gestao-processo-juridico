@@ -2,16 +2,19 @@
 
 namespace Illuminate\Session;
 
-use Carbon\Carbon;
-use Illuminate\Support\Arr;
-use SessionHandlerInterface;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Database\QueryException;
-use Illuminate\Database\ConnectionInterface;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Database\ConnectionInterface;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\InteractsWithTime;
+use SessionHandlerInterface;
 
-class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareInterface
+class DatabaseSessionHandler implements ExistenceAwareInterface, SessionHandlerInterface
 {
+    use InteractsWithTime;
+
     /**
      * The database connection instance.
      *
@@ -66,7 +69,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function open($savePath, $sessionName)
     {
         return true;
@@ -74,7 +80,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return true;
@@ -82,7 +91,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return string|false
      */
+    #[\ReturnTypeWillChange]
     public function read($sessionId)
     {
         $session = (object) $this->getQuery()->find($sessionId);
@@ -90,7 +102,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
         if ($this->expired($session)) {
             $this->exists = true;
 
-            return;
+            return '';
         }
 
         if (isset($session->payload)) {
@@ -98,6 +110,8 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
             return base64_decode($session->payload);
         }
+
+        return '';
     }
 
     /**
@@ -114,7 +128,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function write($sessionId, $data)
     {
         $payload = $this->getDefaultPayload($data);
@@ -136,8 +153,8 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
      * Perform an insert operation on the session ID.
      *
      * @param  string  $sessionId
-     * @param  string  $payload
-     * @return void
+     * @param  array<string, mixed>  $payload
+     * @return bool|null
      */
     protected function performInsert($sessionId, $payload)
     {
@@ -152,7 +169,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
      * Perform an update operation on the session ID.
      *
      * @param  string  $sessionId
-     * @param  string  $payload
+     * @param  array<string, mixed>  $payload
      * @return int
      */
     protected function performUpdate($sessionId, $payload)
@@ -170,7 +187,7 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     {
         $payload = [
             'payload' => base64_encode($data),
-            'last_activity' => Carbon::now()->getTimestamp(),
+            'last_activity' => $this->currentTime(),
         ];
 
         if (! $this->container) {
@@ -248,7 +265,10 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function destroy($sessionId)
     {
         $this->getQuery()->where('id', $sessionId)->delete();
@@ -258,10 +278,13 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
 
     /**
      * {@inheritdoc}
+     *
+     * @return int|false
      */
+    #[\ReturnTypeWillChange]
     public function gc($lifetime)
     {
-        $this->getQuery()->where('last_activity', '<=', Carbon::now()->getTimestamp() - $lifetime)->delete();
+        $this->getQuery()->where('last_activity', '<=', $this->currentTime() - $lifetime)->delete();
     }
 
     /**
@@ -272,6 +295,19 @@ class DatabaseSessionHandler implements SessionHandlerInterface, ExistenceAwareI
     protected function getQuery()
     {
         return $this->connection->table($this->table);
+    }
+
+    /**
+     * Set the application instance used by the handler.
+     *
+     * @param  \Illuminate\Contracts\Foundation\Application  $container
+     * @return $this
+     */
+    public function setContainer($container)
+    {
+        $this->container = $container;
+
+        return $this;
     }
 
     /**

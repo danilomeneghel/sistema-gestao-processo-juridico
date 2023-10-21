@@ -1,86 +1,44 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ADV - Gestão de Processo Jurídico</title>
+@extends('layouts.auth-master')
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+@section('content')
+<div class="col-login-image">&nbsp;</div>
+<div class="col-login-form">
+    <div id="container-login">
+        <div class="logo-login text-center">
+            <img src="{{ asset('images/logo.png') }}" height="125px">
+        </div>
 
-  	<!-- Styles -->
-  	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-  	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-	</head>
-	<body class="bg-page">
-    <div class="bg-login">
-        <div class="container-login">
-            <div class="logo-login">
-              <img src="{{ asset('images/logo.png') }}">
+        <div class="panel panel-default">
+            <div class="panel-body box-login">
+                @include('layouts.partials.messages')
+                <form class="form-login" method="POST" action="{{ route('login.perform') }}">
+                    {{ csrf_field() }}
+                    <div class="form-group form-floating mb-3">
+                        <input type="text" class="form-control" name="username" value="{{ old('username') }}" placeholder="Usuário" required="required" autofocus>
+                        <label for="floatingName">Usuário</label>
+                        @if ($errors->has('username'))
+                        <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group form-floating mb-3">
+                        <input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Senha" required="required">
+                        <label for="floatingPassword">Senha</label>
+                        @if ($errors->has('password'))
+                        <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                      <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="register">
+                          <a ui-sref="register" class="text-center" href="{{ route('register.show') }}">Criar uma conta</a>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-version">Versão 2.0.3</div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-body box-login">
-                    <h4 class="title-login">Gestão de Processo Jurídico</h4>
-      							<form class="form-login" method="POST" action="{{ route('login') }}">
-      								{{ csrf_field() }}
-      								<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-								          <i class="fa fa-user"></i>
-      										<input id="email" type="email" class="form-control input-login" name="email" value="{{ old('email') }}" placeholder="E-mail" required autofocus>
-      										@if ($errors->has('email'))
-      											<span class="help-block">
-      												<strong>{{ $errors->first('email') }}</strong>
-      											</span>
-      										@endif
-      								</div>
-      								<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-      									  <i class="fa fa-lock"></i>
-      										<input id="password" type="password" class="form-control input-login" name="password" placeholder="Senha" required>
-      										@if ($errors->has('password'))
-      											<span class="help-block">
-      												<strong>{{ $errors->first('password') }}</strong>
-      											</span>
-      										@endif
-      								</div>
-      								<div class="form-group">
-      								  <input type="submit" class="btn btn-login btn-lg btn-block" value="Entrar">
-      								</div>
-      								<!-- <div class="text-center">- OR -</div>
-      								<div class="social-auth-links text-center">
-      									<a href="{{ route('social.oauth', 'facebook') }}" class="btn btn-block btn-social btn-facebook btn-flat">
-      										<i class="fa fa-facebook"></i>
-      										Login with Facebook
-      									</a>
-      									<a href="{{ route('social.oauth', 'twitter') }}" class="btn btn-block btn-social btn-twitter btn-flat">
-      										<i class="fa fa-twitter"></i>
-      										Login with Twitter
-      									</a>
-      									<a href="{{ route('social.oauth', 'google') }}" class="btn btn-block btn-social btn-google btn-flat">
-      										<i class="fa fa-google"></i>
-      										Login with Google
-      									</a>
-      									<a href="{{ route('social.oauth', 'github') }}" class="btn btn-block btn-social btn-github btn-flat">
-      										<i class="fa fa-github"></i>
-      										Login with Github
-      									</a>
-      								</div> -->
-                                    <div class="login-links">
-        							  <div class="col-xs-6">
-          								<div class="pull-left">
-          								  <a ui-sref="forgot_password" href="{{ route('password.request') }}">Esqueceu sua senha?</a>
-          								</div>
-        							  </div>
-        							  <div class="col-xs-6">
-          								<div class="pull-right">
-          								  <a ui-sref="register" class="text-center" href="{{ route('register') }}">Criar uma conta</a>
-          								</div>
-        							  </div>
-      							  </div>
-                    </form>
-                </div>
-          </div>
-			</div>
-		</div>
-	</body>
-</html>
+        </div>
+    </div>
+</div>
+@endsection

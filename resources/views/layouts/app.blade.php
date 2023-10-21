@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>ADV - Gestão de Processo Jurídico</title>
+    <title>Gestão Jurídica</title>
 
 	  <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
@@ -38,19 +38,20 @@
                   </button>
 
                   <!-- Branding Image -->
-                  <a class="navbar-brand" href="{{ url('/home') }}">
-                      ADV Jurídico
+                  <a class="navbar-brand" href="{{ url('/') }}">
+                      Gestão Jurídica
                   </a>
               </div>
 
               <div class="collapse navbar-collapse" id="app-navbar-collapse">
                   <!-- Left Side Of Navbar -->
-        				  <ul class="nav nav-navbar navbar-left">
-          					<li class="menu-item"><a href="{{ url('/processos') }}">Processos</a></li>
-          					<li class="menu-item"><a href="{{ url('/pedidos') }}">Pedidos</a></li>
-          					<li class="menu-item"><a href="{{ url('/tipopedidos') }}">Tipo Pedidos</a></li>
-          					<li class="menu-item"><a href="{{ url('/clientes') }}">Clientes</a></li>
-        				  </ul>
+                  <ul class="nav nav-navbar navbar-left">
+                    <li class="menu-item"><a href="{{ url('/processos') }}">Processos</a></li>
+                    <li class="menu-item"><a href="{{ url('/pedidos') }}">Pedidos</a></li>
+                    <li class="menu-item"><a href="{{ url('/tipopedidos') }}">Tipo Pedidos</a></li>
+                    <li class="menu-item"><a href="{{ url('/clientes') }}">Clientes</a></li>
+                    <li class="menu-item"><a href="{{ url('/swagger-ui') }}" target="_blank">Acessar API</a></li>
+                  </ul>
 
                   <!-- Right Side Of Navbar -->
                   <ul class="nav navbar-nav navbar-right">
@@ -60,8 +61,8 @@
                               {{ Auth::user()->name }} <span class="caret"></span>
                           </a>
                           <ul class="dropdown-menu" role="menu">
-            								  <li><a href="{{ url('/profile') }}">Perfil</a></li>
-            								  <li><a href="{{ url('/logout') }}">Sair</a></li>
+                              <li><a href="{{ url('/profile') }}">Perfil</a></li>
+                              <li><a href="{{ url('/logout') }}">Sair</a></li>
                           </ul>
                       </li>
                   </ul>

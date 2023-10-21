@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Mockery (https://docs.mockery.io/)
+ *
+ * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
+ * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link      https://github.com/mockery/mockery for the canonical source repository
+ */
+
 namespace Mockery\Generator\StringManipulation\Pass;
 
 use Mockery\Generator\MockConfiguration;
@@ -14,6 +22,7 @@ class RemoveBuiltinMethodsThatAreFinalPass
 {
     protected $methods = array(
         '__wakeup' => '/public function __wakeup\(\)\s+\{.*?\}/sm',
+        '__toString' => '/public function __toString\(\)\s+(:\s+string)?\s*\{.*?\}/sm',
     );
 
     public function apply($code, MockConfiguration $config)

@@ -1,14 +1,34 @@
 <?php
 
+/**
+ * Mockery (https://docs.mockery.io/)
+ *
+ * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
+ * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link      https://github.com/mockery/mockery for the canonical source repository
+ */
+
 namespace Mockery\Generator;
 
-class UndefinedTargetClass
+use const PHP_VERSION_ID;
+
+class UndefinedTargetClass implements TargetClassInterface
 {
     private $name;
 
     public function __construct($name)
     {
         $this->name = $name;
+    }
+
+    public static function factory($name)
+    {
+        return new self($name);
+    }
+
+    public function getAttributes()
+    {
+        return [];
     }
 
     public function getName()
@@ -27,6 +47,11 @@ class UndefinedTargetClass
     }
 
     public function getMethods()
+    {
+        return array();
+    }
+
+    public function getInterfaces()
     {
         return array();
     }
@@ -57,5 +82,10 @@ class UndefinedTargetClass
     public function hasInternalAncestor()
     {
         return false;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

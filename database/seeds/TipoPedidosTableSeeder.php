@@ -1,4 +1,7 @@
 <?php
+
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class TipoPedidosTableSeeder extends Seeder
@@ -10,7 +13,7 @@ class TipoPedidosTableSeeder extends Seeder
      */
     public function run()
     {
-       
+
         $data = [
             [
                 'nome'=>'Horas Extras',

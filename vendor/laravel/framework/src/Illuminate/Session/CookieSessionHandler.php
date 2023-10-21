@@ -2,13 +2,15 @@
 
 namespace Illuminate\Session;
 
-use Carbon\Carbon;
+use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
+use Illuminate\Support\InteractsWithTime;
 use SessionHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
 
 class CookieSessionHandler implements SessionHandlerInterface
 {
+    use InteractsWithTime;
+
     /**
      * The cookie jar instance.
      *
@@ -45,7 +47,10 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function open($savePath, $sessionName)
     {
         return true;
@@ -53,7 +58,10 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return true;
@@ -61,13 +69,16 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return string|false
      */
+    #[\ReturnTypeWillChange]
     public function read($sessionId)
     {
         $value = $this->request->cookies->get($sessionId) ?: '';
 
         if (! is_null($decoded = json_decode($value, true)) && is_array($decoded)) {
-            if (isset($decoded['expires']) && Carbon::now()->getTimestamp() <= $decoded['expires']) {
+            if (isset($decoded['expires']) && $this->currentTime() <= $decoded['expires']) {
                 return $decoded['data'];
             }
         }
@@ -77,12 +88,15 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function write($sessionId, $data)
     {
         $this->cookie->queue($sessionId, json_encode([
             'data' => $data,
-            'expires' => Carbon::now()->addMinutes($this->minutes)->getTimestamp(),
+            'expires' => $this->availableAt($this->minutes * 60),
         ]), $this->minutes);
 
         return true;
@@ -90,7 +104,10 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function destroy($sessionId)
     {
         $this->cookie->queue($this->cookie->forget($sessionId));
@@ -100,7 +117,10 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @return int|false
      */
+    #[\ReturnTypeWillChange]
     public function gc($lifetime)
     {
         return true;

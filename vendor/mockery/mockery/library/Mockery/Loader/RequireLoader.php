@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Mockery (https://docs.mockery.io/)
+ *
+ * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
+ * @license   https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link      https://github.com/mockery/mockery for the canonical source repository
+ */
+
 namespace Mockery\Loader;
 
 use Mockery\Generator\MockDefinition;
@@ -7,11 +15,33 @@ use Mockery\Loader\Loader;
 
 class RequireLoader implements Loader
 {
+    /**
+     * @var string
+     */
     protected $path;
 
-    public function __construct($path)
+    /**
+     * @var string
+     */
+    protected $lastPath = '';
+
+    public function __construct($path = null)
     {
-        $this->path = $path;
+        $this->path = realpath($path) ?: sys_get_temp_dir();
+
+        register_shutdown_function([$this, '__destruct']);
+    }
+
+    public function __destruct()
+    {
+        $files = array_diff(
+            glob($this->path . DIRECTORY_SEPARATOR . 'Mockery_*.php')?:[],
+            [$this->lastPath]
+        );
+
+        foreach ($files as $file) {
+            @unlink($file);
+        }
     }
 
     public function load(MockDefinition $definition)
@@ -20,9 +50,12 @@ class RequireLoader implements Loader
             return;
         }
 
-        $tmpfname = tempnam($this->path, "Mockery");
-        file_put_contents($tmpfname, $definition->getCode());
+        $this->lastPath = sprintf('%s%s%s.php', $this->path, DIRECTORY_SEPARATOR, uniqid('Mockery_'));
 
-        require $tmpfname;
+        file_put_contents($this->lastPath, $definition->getCode());
+
+        if (file_exists($this->lastPath)){
+            require $this->lastPath;
+        }
     }
 }

@@ -1,0 +1,18 @@
+.bg-light {
+  background-color: #ffffff !important;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.nav-text {
+  margin-right: 12px !important;
+  color: #fff !important;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-login {
+  margin-top: -20px !important;
+  padding-bottom: 15px !important;
+}
+

@@ -2,8 +2,9 @@
 
 namespace Illuminate\View\Concerns;
 
-use InvalidArgumentException;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
 
 trait ManagesLayouts
 {
@@ -24,9 +25,16 @@ trait ManagesLayouts
     /**
      * The parent placeholder for the request.
      *
-     * @var string
+     * @var mixed
      */
     protected static $parentPlaceholder = [];
+
+    /**
+     * The parent placeholder salt for the request.
+     *
+     * @var string
+     */
+    protected static $parentPlaceholderSalt;
 
     /**
      * Start injecting content into a section.
@@ -55,7 +63,7 @@ trait ManagesLayouts
      */
     public function inject($section, $content)
     {
-        return $this->startSection($section, $content);
+        $this->startSection($section, $content);
     }
 
     /**
@@ -77,6 +85,7 @@ trait ManagesLayouts
      *
      * @param  bool  $overwrite
      * @return string
+     *
      * @throws \InvalidArgumentException
      */
     public function stopSection($overwrite = false)
@@ -100,6 +109,7 @@ trait ManagesLayouts
      * Stop injecting content into a section and append it.
      *
      * @return string
+     *
      * @throws \InvalidArgumentException
      */
     public function appendSection()
@@ -166,10 +176,26 @@ trait ManagesLayouts
     public static function parentPlaceholder($section = '')
     {
         if (! isset(static::$parentPlaceholder[$section])) {
-            static::$parentPlaceholder[$section] = '##parent-placeholder-'.sha1($section).'##';
+            $salt = static::parentPlaceholderSalt();
+
+            static::$parentPlaceholder[$section] = '##parent-placeholder-'.sha1($salt.$section).'##';
         }
 
         return static::$parentPlaceholder[$section];
+    }
+
+    /**
+     * Get the parent placeholder salt.
+     *
+     * @return string
+     */
+    protected static function parentPlaceholderSalt()
+    {
+        if (! static::$parentPlaceholderSalt) {
+            return static::$parentPlaceholderSalt = Str::random(40);
+        }
+
+        return static::$parentPlaceholderSalt;
     }
 
     /**
@@ -184,15 +210,26 @@ trait ManagesLayouts
     }
 
     /**
+     * Check if section does not exist.
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    public function sectionMissing($name)
+    {
+        return ! $this->hasSection($name);
+    }
+
+    /**
      * Get the contents of a section.
      *
      * @param  string  $name
-     * @param  string  $default
+     * @param  string|null  $default
      * @return mixed
      */
     public function getSection($name, $default = null)
     {
-        return isset($this->getSections()[$name]) ? $this->getSections()[$name] : $default;
+        return $this->getSections()[$name] ?? $default;
     }
 
     /**
