@@ -23,20 +23,23 @@ use App\Models\Cidade;
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
 
+    Route::get('/ufs/', function($uf = null){
+        return response()->json(Cidade::select('uf')->distinct('uf')->orderBy('uf')->get());
+    });
+
+    Route::get('/cidades/{uf}', function($uf = null){
+        return response()->json(Cidade::where('uf', $uf)->orderBy('nome')->get());
+    });
+
+    Route::get('/profile', 'RegisterController@edit')->name('profile.edit');
+    Route::put('/profile', 'RegisterController@update')->name('profile.update');
+
 	Route::group(['middleware' => ['guest']], function() {
 		Route::get('/register', 'RegisterController@show')->name('register.show');
 		Route::post('/register', 'RegisterController@register')->name('register.perform');
 
 		Route::get('/login', 'LoginController@show')->name('login.show');
 		Route::post('/login', 'LoginController@login')->name('login.perform');
-
-		Route::get('/ufs/', function($uf = null){
-            return response()->json(Cidade::select('uf')->distinct('uf')->orderBy('uf')->get());
-        });
-
-        Route::get('/cidades/{uf}', function($uf = null){
-            return response()->json(Cidade::where('uf', $uf)->orderBy('nome')->get());
-        });
 	});
 
 	Route::group(['middleware' => ['auth']], function() {
@@ -45,8 +48,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 		Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
-        Route::get('/profile', 'RegisterController@edit')->name('profile.edit');
-        Route::put('/profile', 'RegisterController@update')->name('profile.update');
+        Route::get('/clientes/grid', [ClienteController::class, 'grid'])->name('clientes.grid');
+        Route::get('/pedidos/grid', [PedidoController::class, 'grid'])->name('pedidos.grid');
+        Route::get('/processos/grid', [ProcessoController::class, 'grid'])->name('processos.grid');
+        Route::get('/tipopedidos/grid', [TipopedidoController::class, 'grid'])->name('tipopedidos.grid');
 
         Route::prefix('clientes')->group(function(){
 		    Route::get('/', [ClienteController::class, 'index'])->name('clientes');
@@ -55,7 +60,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 		    Route::get('/{id}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
 		    Route::put('/{id}', [ClienteController::class, 'update'])->name('clientes.update');
 		    Route::get('/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
-		    Route::get('/grid', [ClienteController::class, 'grid'])->name('clientes.grid');
 		});
 
 		Route::prefix('pedidos')->group(function(){
@@ -65,7 +69,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 		    Route::get('/{id}/edit', [PedidoController::class, 'edit'])->name('pedidos.edit');
 		    Route::put('/{id}', [PedidoController::class, 'update'])->name('pedidos.update');
 		    Route::get('/{id}', [PedidoController::class, 'destroy'])->name('pedidos.destroy');
-		    Route::get('/grid', [PedidoController::class, 'grid'])->name('pedidos.grid');
 		});
 
 		Route::prefix('processos')->group(function(){
@@ -75,7 +78,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 		    Route::get('/{id}/edit', [ProcessoController::class, 'edit'])->name('processos.edit');
 		    Route::put('/{id}', [ProcessoController::class, 'update'])->name('processos.update');
 		    Route::get('/{id}', [ProcessoController::class, 'destroy'])->name('processos.destroy');
-		    Route::get('/grid', [ProcessoController::class, 'grid'])->name('processos.grid');
 		});
 
         Route::prefix('tipopedidos')->group(function(){
@@ -85,7 +87,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/{id}/edit', [TipopedidoController::class, 'edit'])->name('tipopedidos.edit');
             Route::put('/{id}', [TipopedidoController::class, 'update'])->name('tipopedidos.update');
             Route::get('/{id}', [TipopedidoController::class, 'destroy'])->name('tipopedidos.destroy');
-            Route::get('/grid', [TipopedidoController::class, 'grid'])->name('tipopedidos.grid');
         });
 
 	});
