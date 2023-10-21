@@ -48,7 +48,7 @@ class ProcessoController extends Controller
 		$len = $_GET['length'];
 		$start = $_GET['start'];
 
-		$select = "SELECT a.id, a.nro_processo, a.data_distribuicao, a.valor_causa, a.vara, a.cidade, a.uf, a.data_criacao,1,2 ";
+		$select = "SELECT a.id, a.nro_processo, a.data_distribuicao, a.valor_causa, a.vara, a.cidade, a.uf, a.created_at,1,2 ";
 		$presql = " FROM processos a ";
 		if($_GET['search']['value']) {
 			$presql .= " WHERE nro_processo LIKE '%".$_GET['search']['value']."%' ";
@@ -95,7 +95,7 @@ class ProcessoController extends Controller
 		$processo->vara = $request->vara;
 		$processo->cidade = $request->cidade;
 		$processo->uf = $request->uf;
-		$processo->data_edicao = $request->data_edicao;
+		$processo->updated_at = $request->updated_at;
 		$processo->save();
 
 		$pedido = Pedido::find($request->pedido);

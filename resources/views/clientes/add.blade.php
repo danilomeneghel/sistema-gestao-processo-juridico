@@ -8,7 +8,7 @@
 
     <div class="panel-body">
 
-        <form action="{{ url('/clientes'.( isset($model) ? "/" . $model->id : "")) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/clientes'.( isset($model) ? "/" . @$model->id : "")) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             @if (isset($model))
@@ -18,19 +18,34 @@
             <div class="form-group">
                 <label for="id" class="col-sm-3 control-label">Id</label>
                 <div class="col-sm-6">
-                    <input type="text" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
+                    <input type="text" name="id" id="id" class="form-control" value="{{@$model->id or ''}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
                 <label for="nome" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="nome" id="nome" class="form-control" value="{{$model['nome'] or ''}}" required="required">
+                    <input type="text" name="nome" id="nome" class="form-control" value="{{@$model->nome or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email</label>
                 <div class="col-sm-6">
-                    <input type="text" name="email" id="email" class="form-control" value="{{$model['email'] or ''}}" required="required">
+                    <input type="text" name="email" id="email" class="form-control" value="{{@$model->nome or ''}}" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Telefone</label>
+                <div class="col-sm-6">
+                    <input type="text" name="telefone" id="telefone" class="form-control" value="{{@$model->telefone or ''}}" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ativo" class="col-sm-3 control-label">Gênero</label>
+                <div class="col-sm-2">
+                    <select name="genero" id="genero" class="form-control">
+                      <option value="Masculino">Masculino</option>
+                      <option value="Feminino">Feminino</option>
+                    </select>
                 </div>
             </div>
 

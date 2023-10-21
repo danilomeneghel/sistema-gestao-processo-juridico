@@ -8,7 +8,7 @@
 
     <div class="panel-body">
 
-        <form action="{{ url('/tipopedidos'.( isset($model) ? "/" . $model->id : "")) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/tipopedidos'.( isset($model) ? "/" . @$model->id : "")) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             @if (isset($model))
@@ -18,13 +18,13 @@
             <div class="form-group">
                 <label for="id" class="col-sm-3 control-label">Id</label>
                 <div class="col-sm-6">
-                    <input type="text" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
+                    <input type="text" name="id" id="id" class="form-control" value="{{@$model->id or ''}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
                 <label for="nome" class="col-sm-3 control-label">Nome</label>
                 <div class="col-sm-6">
-                    <input type="text" name="nome" id="nome" class="form-control" value="{{$model['nome'] or ''}}" required="required">
+                    <input type="text" name="nome" id="nome" class="form-control" value="{{@$model->nome or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">

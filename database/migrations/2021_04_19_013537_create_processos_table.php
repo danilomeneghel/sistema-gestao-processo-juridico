@@ -22,8 +22,8 @@ class CreateProcessosTable extends Migration
             $table->string('vara', 20);
             $table->string('cidade', 65);
             $table->string('uf', 2);
-            $table->string('data_criacao', 20);
-            $table->string('data_edicao', 20)->nullable();
+            $table->string('created_at', 20);
+            $table->string('updated_at', 20)->nullable();
             $table->timestamps();
         });
     }

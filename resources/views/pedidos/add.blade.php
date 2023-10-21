@@ -8,7 +8,7 @@
 
     <div class="panel-body">
 
-        <form action="{{ url('/pedidos'.( isset($model) ? "/" . $model->id : "")) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/pedidos'.( isset($model) ? "/" . @$model->id : "")) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             @if (isset($model))
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="id" class="col-sm-3 control-label">Id</label>
                 <div class="col-sm-6">
-                    <input type="text" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
+                    <input type="text" name="id" id="id" class="form-control" value="{{@$model->id or ''}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
@@ -36,13 +36,13 @@
             <div class="form-group">
                 <label for="valor_risco_provavel" class="col-sm-3 control-label">Valor Risco Provavel</label>
                 <div class="col-sm-2">
-                    <input type="text" name="valor_risco_provavel" id="valor_risco_provavel" class="form-control" value="{{$model['valor_risco_provavel'] or ''}}" required="required">
+                    <input type="text" name="valor_risco_provavel" id="valor_risco_provavel" class="form-control" value="{{@$model->valor_risco_provavel or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label for="status" class="col-sm-3 control-label">Status</label>
                 <div class="col-sm-6">
-                    <input type="text" name="status" id="status" class="form-control" value="{{$model['status'] or ''}}" required="required">
+                    <input type="text" name="status" id="status" class="form-control" value="{{@$model->status or ''}}" required="required">
                 </div>
             </div>
 

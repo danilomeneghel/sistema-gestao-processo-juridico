@@ -13,6 +13,7 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Email</th>
+                <th>Telefone</th>
                 <th>Data Criação</th>
                 <th style="width:50px"></th>
                 <th style="width:50px"></th>
@@ -47,7 +48,8 @@
                         "render": function ( data, type, row ) {
                             return '<a href="{{ url('/clientes') }}/'+row[0]+'/edit" class="btn btn-primary"><i class="fa fa-edit"></i> Alterar</a>';
                         },
-                        "targets": 4                    },
+                        "targets": 4
+                    },
                     {
                         "render": function ( data, type, row ) {
                             return '<a href="#" onclick="return doDelete('+row[0]+')" class="btn btn-danger"><i class="fa fa-trash"></i> Excluir</a>';

@@ -95,7 +95,7 @@ class PedidoController extends Controller
 		$pedido->id_tipo_pedido = $request->id_tipo_pedido;
 		$pedido->valor_risco_provavel = $request->valor_risco_provavel;
 		$pedido->status = $request->status;
-		$pedido->data_edicao = $request->data_edicao;
+		$pedido->updated_at = $request->updated_at;
 		$pedido->save();
 
 		return redirect('/pedidos');

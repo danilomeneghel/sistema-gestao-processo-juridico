@@ -8,7 +8,7 @@
 
     <div class="panel-body">
 
-        <form action="{{ url('/processos'.( isset($model) ? "/" . $model->id : "")) }}" method="POST" class="form-horizontal">
+        <form action="{{ url('/processos'.( isset($model) ? "/" . @$model->id : "")) }}" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             @if (isset($model))
@@ -18,13 +18,13 @@
             <div class="form-group">
                 <label for="id" class="col-sm-3 control-label">Id</label>
                 <div class="col-sm-6">
-                    <input type="text" name="id" id="id" class="form-control" value="{{$model['id'] or ''}}" readonly="readonly">
+                    <input type="text" name="id" id="id" class="form-control" value="{{@$model->id or ''}}" readonly="readonly">
                 </div>
             </div>
             <div class="form-group">
                 <label for="nro_processo" class="col-sm-3 control-label">Nro Processo</label>
                 <div class="col-sm-6">
-                    <input type="text" name="nro_processo" id="nro_processo" class="form-control" value="{{$model['nro_processo'] or ''}}" required="required">
+                    <input type="text" name="nro_processo" id="nro_processo" class="form-control" value="{{@$model->nro_processo or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
@@ -52,31 +52,31 @@
             <div class="form-group">
                 <label for="data_distribuicao" class="col-sm-3 control-label">Data Distribuição</label>
                 <div class="col-sm-3">
-                    <input type="date" name="data_distribuicao" id="data_distribuicao" class="form-control" value="{{$model['data_distribuicao'] or ''}}" required="required">
+                    <input type="date" name="data_distribuicao" id="data_distribuicao" class="form-control" value="{{@$model->data_distribuicao or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label for="valor_causa" class="col-sm-3 control-label">Valor Causa</label>
                 <div class="col-sm-2">
-                    <input type="number" name="valor_causa" id="valor_causa" class="form-control" value="{{$model['valor_causa'] or ''}}" required="required">
+                    <input type="number" name="valor_causa" id="valor_causa" class="form-control" value="{{@$model->valor_causa or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
                 <label for="vara" class="col-sm-3 control-label">Vara</label>
                 <div class="col-sm-6">
-                    <input type="text" name="vara" id="vara" class="form-control" value="{{$model['vara'] or ''}}" required="required">
+                    <input type="text" name="vara" id="vara" class="form-control" value="{{@$model->vara or ''}}" required="required">
                 </div>
             </div>
             <div class="form-group">
               <label for="uf" class="col-sm-3 control-label">UF</label>
               <div class="col-sm-2">
-                <select name="uf" id="uf" default="{{ $model['uf'] or 'SP' }}" class="form-control" required="required"></select>
+                <select name="uf" id="uf" default="{{ @$model->uf or 'SP' }}" class="form-control" required="required"></select>
               </div>
             </div>
             <div class="form-group">
                 <label for="cidade" class="col-sm-3 control-label">Cidade</label>
                 <div class="col-sm-6">
-                    <select name="cidade" id="cidade" default="{{ $model['cidade'] or 'Selecione' }}" class="form-control" required="required"></select>
+                    <select name="cidade" id="cidade" default="{{ @$model->cidade or 'Selecione' }}" class="form-control" required="required"></select>
                 </div>
             </div>
 

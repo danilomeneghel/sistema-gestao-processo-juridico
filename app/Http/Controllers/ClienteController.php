@@ -88,7 +88,9 @@ class ClienteController extends Controller
 		}
 		$cliente->nome = $request->nome;
 		$cliente->email = $request->email;
-		$cliente->data_edicao = $request->data_edicao;
+		$cliente->telefone = $request->telefone;
+		$cliente->genero = $request->genero;
+		$cliente->updated_at = $request->updated_at;
 		$cliente->save();
 
 		return redirect('/clientes');

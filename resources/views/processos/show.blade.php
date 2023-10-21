@@ -78,16 +78,16 @@
             </div>
 
             <div class="form-group">
-                <label for="data_criacao" class="col-sm-3 control-label">Data Criação</label>
+                <label for="created_at" class="col-sm-3 control-label">Data Criação</label>
                 <div class="col-sm-6">
-                    <input type="text" name="data_criacao" id="data_criacao" class="form-control" value="{{$model['data_criacao'] or ''}}" readonly="readonly">
+                    <input type="text" name="created_at" id="created_at" class="form-control" value="{{$model['created_at'] or ''}}" readonly="readonly">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="data_edicao" class="col-sm-3 control-label">Data Edição</label>
+                <label for="updated_at" class="col-sm-3 control-label">Data Edição</label>
                 <div class="col-sm-6">
-                    <input type="text" name="data_edicao" id="data_edicao" class="form-control" value="{{$model['data_edicao'] or ''}}" readonly="readonly">
+                    <input type="text" name="updated_at" id="updated_at" class="form-control" value="{{$model['updated_at'] or ''}}" readonly="readonly">
                 </div>
             </div>
 

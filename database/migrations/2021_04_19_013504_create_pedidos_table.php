@@ -18,8 +18,8 @@ class CreatePedidosTable extends Migration
             $table->string('id_tipo_pedido', 5);
             $table->string('valor_risco_provavel', 10);
             $table->string('status', 10);
-            $table->string('data_criacao', 20);
-            $table->string('data_edicao', 20)->nullable();
+            $table->string('created_at', 20);
+            $table->string('updated_at', 20)->nullable();
             $table->timestamps();
         });
     }
