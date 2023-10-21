@@ -83,16 +83,17 @@
     <script type="text/javascript" src="{{ asset('js/multiselect.js') }}"></script>
 
     <!-- Cidades/Estados -->
+    <script type="text/javascript" src="{{ asset('js/cidades.js') }}"></script>
     <script type="text/javascript">
       var APP_URL = {!! json_encode(url('/')) !!};
     </script>
-
     <script type="text/javascript" src="{{ asset('js/scripts-ufs-cidades.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/ufs-cidades.js') }}"></script>
 
   	<!-- App -->
   	<script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
+    <!-- DataTables -->
     <script type="text/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.responsive.min.js') }}"></script>

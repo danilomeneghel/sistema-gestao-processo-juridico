@@ -17,6 +17,7 @@ class CreateTipopedidosTable extends Migration
             $table->increments('id');
             $table->string('nome', 65);
             $table->string('ativo', 10);
+            $table->timestamps();
         });
     }
 

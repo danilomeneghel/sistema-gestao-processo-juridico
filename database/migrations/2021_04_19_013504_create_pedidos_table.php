@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientesTable extends Migration
+class CreatePedidosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function(Blueprint $table) {
+        Schema::create('pedidos', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 65);
-            $table->string('email', 65);
+            $table->string('id_tipo_pedido', 5);
+            $table->string('valor_risco_provavel', 10);
+            $table->string('status', 10);
             $table->string('data_criacao', 20);
             $table->string('data_edicao', 20)->nullable();
+            $table->timestamps();
         });
     }
 

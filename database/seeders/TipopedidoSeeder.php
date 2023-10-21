@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Tipopedido;
 
-class TipoPedidosTableSeeder extends Seeder
+class TipopedidoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +14,6 @@ class TipoPedidosTableSeeder extends Seeder
      */
     public function run()
     {
-
         $data = [
             [
                 'nome'=>'Horas Extras',
@@ -32,6 +32,6 @@ class TipoPedidosTableSeeder extends Seeder
                 'ativo'=>1
             ]
         ];
-        DB::table('tipopedidos')->insert($data);
+        Tipopedido::insert($data);
     }
 }

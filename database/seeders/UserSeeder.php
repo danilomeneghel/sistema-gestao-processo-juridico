@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class UsersTableSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,11 +14,12 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $data = [
             'name' => 'Administrador',
             'username' => 'admin',
             'email' => 'admin@admin.com',
             'password' => bcrypt('admin')
-        ]);
+        ];
+        User::insert($data);
     }
 }

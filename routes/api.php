@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\ClienteController;
+use App\Http\Controllers\Api\PedidoController;
+use App\Http\Controllers\Api\ProcessoController;
+use App\Http\Controllers\Api\TipopedidoController;
+use App\Http\Controllers\Api\UserController;
 
 /*
 |--------------------------------------------------------------------------

@@ -3,13 +3,11 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use App\Models\Cidade;
 
-class CidadesTableSeeder extends Seeder {
+class CidadeSeeder extends Seeder {
 
     public function run() {
-
-        DB::disableQueryLog();
 
         $ufs[] = array(
             array("uf" => "AC", "nome" => "ACRELANDIA"),
@@ -10052,7 +10050,7 @@ class CidadesTableSeeder extends Seeder {
 
         foreach ($ufs as $uf) {
             $this->command->info('Inserindo cidades de '.$uf[0]['uf'].' ['.  count($uf).']..');
-            \Artesaos\Cidade::insert($uf);
+            Cidade::insert($uf);
         }
     }
 

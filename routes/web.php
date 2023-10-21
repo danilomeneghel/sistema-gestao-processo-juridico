@@ -7,6 +7,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProcessoController;
 use App\Http\Controllers\TipopedidoController;
+use App\Models\Cidade;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 		Route::get('/login', 'LoginController@show')->name('login.show');
 		Route::post('/login', 'LoginController@login')->name('login.perform');
+
+		Route::get('/ufs/', function($uf = null){
+            return response()->json(Cidade::select('uf')->distinct('uf')->orderBy('uf')->get());
+        });
+
+        Route::get('/cidades/{uf}', function($uf = null){
+            return response()->json(Cidade::where('uf', $uf)->orderBy('nome')->get());
+        });
 	});
 
 	Route::group(['middleware' => ['auth']], function() {

@@ -9,9 +9,6 @@ class Pedido extends Model
 {
     use HasFactory;
 
-    const CREATED_AT = 'data_criacao';
-    const UPDATED_AT = 'data_edicao';
-
     public function tipopedido()
     {
         return $this->hasOne(Tipopedido::class, 'id', 'id_tipo_pedido');

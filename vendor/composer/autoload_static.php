@@ -329,8 +329,8 @@ class ComposerStaticInit9ab2506ec4153b768706e1cc806e7d26
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -537,6 +537,7 @@ class ComposerStaticInit9ab2506ec4153b768706e1cc806e7d26
         'App\\Http\\Controllers\\Api\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ClienteController.php',
         'App\\Http\\Controllers\\Api\\PedidoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/PedidoController.php',
         'App\\Http\\Controllers\\Api\\ProcessoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/ProcessoController.php',
+        'App\\Http\\Controllers\\Api\\TipopedidoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TipopedidoController.php',
         'App\\Http\\Controllers\\Api\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/UserController.php',
         'App\\Http\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClienteController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -569,6 +570,7 @@ class ComposerStaticInit9ab2506ec4153b768706e1cc806e7d26
         'App\\Http\\Resources\\Processo' => __DIR__ . '/../..' . '/app/Http/Resources/Processo.php',
         'App\\Http\\Resources\\Tipopedido' => __DIR__ . '/../..' . '/app/Http/Resources/Tipopedido.php',
         'App\\Http\\Resources\\User' => __DIR__ . '/../..' . '/app/Http/Resources/User.php',
+        'App\\Models\\Cidade' => __DIR__ . '/../..' . '/app/Models/Cidade.php',
         'App\\Models\\Cliente' => __DIR__ . '/../..' . '/app/Models/Cliente.php',
         'App\\Models\\Pedido' => __DIR__ . '/../..' . '/app/Models/Pedido.php',
         'App\\Models\\Processo' => __DIR__ . '/../..' . '/app/Models/Processo.php',
@@ -577,6 +579,7 @@ class ComposerStaticInit9ab2506ec4153b768706e1cc806e7d26
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
+        'App\\Providers\\CidadesServiceProvider' => __DIR__ . '/../..' . '/app/Providers/CidadesServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\Services\\Login\\RememberMeExpiration' => __DIR__ . '/../..' . '/app/Services/Login/RememberMeExpiration.php',
@@ -693,6 +696,11 @@ class ComposerStaticInit9ab2506ec4153b768706e1cc806e7d26
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Seeders\\CidadeSeeder' => __DIR__ . '/../..' . '/database/seeders/CidadeSeeder.php',
+        'Database\\Seeders\\ClienteSeeder' => __DIR__ . '/../..' . '/database/seeders/ClienteSeeder.php',
+        'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\TipopedidoSeeder' => __DIR__ . '/../..' . '/database/seeders/TipopedidoSeeder.php',
+        'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
